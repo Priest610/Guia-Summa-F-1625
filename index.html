@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summa F-Series Tools & Blades Catalog • Papiro</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+          },
+          colors: {
+            papiro: {
+              orange: '#EE5A36',
+              orangeDark: '#D74724',
+              orangeLight: '#FFF0EC'
+            },
+            notion: {
+              bg: '#FFFFFF',
+              darkBg: '#191919',
+              sidebar: '#F7F6F3',
+              darkSidebar: '#202020',
+              border: '#E9E9E7',
+              darkBorder: '#2F2F2F',
+              hover: '#EFEFED',
+              darkHover: '#2B2B2B',
+              text: '#37352F',
+              darkText: '#D4D4D4',
+              muted: '#787774',
+              darkMuted: '#9B9A97'
+            }
+          },
+          boxShadow: {
+            'notion': '0 1px 3px rgba(15, 15, 15, 0.05), 0 0 0 1px rgba(15, 15, 15, 0.05)',
+            'notion-hover': '0 6px 16px rgba(15, 15, 15, 0.08), 0 0 0 1px rgba(15, 15, 15, 0.08)',
+            'notion-float': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS for Notion aesthetic and floating card elevation -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .notion-card {
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.18s ease;
+    }
+    .notion-card:hover {
+      transform: translateY(-3px);
+    }
+    /* Custom scrollbar Notion style */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(120, 119, 116, 0.28);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(120, 119, 116, 0.5);
+    }
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body class="bg-notion-bg text-notion-text dark:bg-notion-darkBg dark:text-notion-darkText antialiased min-h-screen flex flex-col transition-colors duration-150">
+
+  <!-- Top Navigation Bar (Notion Clean Topbar) -->
+  <header class="sticky top-0 z-40 bg-notion-bg/95 dark:bg-notion-darkBg/95 backdrop-blur-md border-b border-notion-border dark:border-notion-darkBorder transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand & Title Left -->
+      <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+        <!-- Papiro Official Logo Container -->
+        <div class="flex items-center bg-[#1A1A1A] px-3 py-1.5 rounded-lg border border-neutral-700/60 shadow-xs shrink-0">
+          <img 
+            src="papiro-2025 vector letras blanca.png" 
+            alt="Papiro" 
+            class="h-7 sm:h-8 w-auto object-contain block"
+            onerror="this.style.display='none'; document.getElementById('papiroFallbackSvg').classList.remove('hidden');"
+          >
+          <!-- Vector Fallback if local image file isn't directly resolved in iframe -->
+          <div id="papiroFallbackSvg" class="hidden flex items-center space-x-2">
+            <svg class="h-6 w-auto" viewBox="0 0 115 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12H72C94 12 108 26 108 48C108 70 94 84 72 84H12V12Z" stroke="#EE5A36" stroke-width="16" stroke-linejoin="round"/>
+              <path d="M12 48H68C76 48 82 54 82 62C82 70 76 76 68 76H12V48Z" fill="#EE5A36"/>
+              <path d="M12 84L48 118H80L44 84H12Z" fill="#EE5A36"/>
+            </svg>
+            <span class="text-white font-extrabold text-base tracking-wider font-sans">papiro</span>
+          </div>
+        </div>
+
+        <!-- Breadcrumb / Divider -->
+        <span class="text-notion-muted dark:text-notion-darkMuted text-xs sm:text-sm font-normal hidden md:inline">/</span>
+        <div class="min-w-0">
+          <div class="flex items-center space-x-2">
+            <span class="text-xs sm:text-sm font-semibold tracking-tight truncate text-notion-text dark:text-notion-darkText">Catálogo Summa Serie F</span>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-2xs font-mono font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 rounded-full">Training 2025</span>
+          </div>
+          <div class="text-2xs text-notion-muted dark:text-notion-darkMuted hidden sm:block truncate">Herramientas, Cuchillas, Familias y Velocidades Oficiales</div>
+        </div>
+      </div>
+
+      <!-- Actions Right -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <!-- Add Tool Button -->
+        <button id="addToolTopBtn" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-papiro-orange hover:bg-papiro-orangeDark text-white shadow-xs transition active:scale-95">
+          <span>➕</span>
+          <span class="hidden sm:inline">Nueva Herramienta</span>
+        </button>
+
+        <!-- Quick Calibration Guide Modal trigger -->
+        <button id="guideBtn" class="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border border-notion-border dark:border-notion-darkBorder hover:bg-notion-hover dark:hover:bg-notion-darkHover transition">
+          <span>📘</span>
+          <span class="hidden md:inline">Guía F-Series</span>
+        </button>
+
+        <!-- Dark / Light Mode Toggle -->
+        <button id="themeToggleBtn" class="p-2 rounded-lg border border-notion-border dark:border-notion-darkBorder hover:bg-notion-hover dark:hover:bg-notion-darkHover transition text-xs" title="Cambiar tema">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- Notion Cover & Hero Info Box -->
+    <div class="relative rounded-2xl overflow-hidden border border-notion-border dark:border-notion-darkBorder bg-gradient-to-r from-neutral-900 via-neutral-800 to-stone-900 text-white p-6 sm:p-8 shadow-notion">
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-3 max-w-2xl">
+          <div class="flex items-center space-x-3">
+            <span class="text-3xl p-2.5 bg-white/10 backdrop-blur rounded-xl border border-white/10 shadow-inner">✂️</span>
+            <div>
+              <div class="text-2xs font-mono uppercase tracking-wider text-papiro-orange font-bold">Summa Experience Center • Training 2025</div>
+              <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight">Catálogo Técnico de Cuchillas & Herramientas</h1>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
+            Base de conocimiento técnico oficial para mesas planas de corte <strong>Summa Serie F</strong> (F1612, F1625, F1432, F1832, F3220 y F3232). Consulta gramajes recomendados, espesores máximos, velocidades en GoProduce y calibra o adapta las herramientas según el taller del cliente.
+          </p>
+        </div>
+
+        <!-- Quick Machine Metrics -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 gap-2 font-mono text-2xs shrink-0">
+          <div class="bg-black/40 backdrop-blur border border-white/10 rounded-xl p-3 text-center">
+            <div class="text-neutral-400">Modelos F</div>
+            <div class="text-sm font-bold text-sky-400 mt-0.5">6 Mesas (+F1625)</div>
+          </div>
+          <div class="bg-black/40 backdrop-blur border border-white/10 rounded-xl p-3 text-center">
+            <div class="text-neutral-400">En Catálogo</div>
+            <div id="statToolsCount" class="text-sm font-bold text-emerald-400 mt-0.5">14 Herramientas</div>
+          </div>
+          <div class="bg-black/40 backdrop-blur border border-white/10 rounded-xl p-3 text-center">
+            <div class="text-neutral-400">Cuchillas & Fresas</div>
+            <div class="text-sm font-bold text-amber-400 mt-0.5">40+ Códigos</div>
+          </div>
+          <div class="bg-black/40 backdrop-blur border border-white/10 rounded-xl p-3 text-center">
+            <div class="text-neutral-400">Husillo HF</div>
+            <div class="text-sm font-bold text-rose-400 mt-0.5">48.000 RPM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Switcher Tabs & Database Controls -->
+    <div class="space-y-4">
+      <div class="flex items-center justify-between border-b border-notion-border dark:border-notion-darkBorder pb-2 overflow-x-auto gap-2">
+        <!-- Tabs -->
+        <div class="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium">
+          <button id="tabGalleryBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-notion-bg dark:bg-notion-darkBg shadow-xs text-notion-text dark:text-notion-darkText font-semibold">
+            <span>🎴</span>
+            <span>Tarjetas Flotantes</span>
+          </button>
+          <button id="tabTableBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted dark:text-notion-darkMuted transition">
+            <span>📋</span>
+            <span>Tabla de Datos</span>
+          </button>
+          <button id="tabBoardBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted dark:text-notion-darkMuted transition">
+            <span>📌</span>
+            <span>Kanban por Módulo</span>
+          </button>
+          <button id="tabMatcherBtn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted dark:text-notion-darkMuted transition">
+            <span>🎯</span>
+            <span>Selector por Material</span>
+          </button>
+        </div>
+
+        <!-- Counter & Reset Catalog -->
+        <div class="flex items-center space-x-2 shrink-0">
+          <button id="restoreCatalogBtn" class="p-1.5 rounded-lg border border-notion-border dark:border-notion-darkBorder text-notion-muted hover:text-notion-text dark:hover:text-notion-darkText hover:bg-notion-hover dark:hover:bg-notion-darkHover transition text-xs" title="Restablecer catálogo oficial de fábrica">
+            🔄
+          </button>
+          <span id="toolsCountLabel" class="text-2xs font-mono text-notion-muted dark:text-notion-darkMuted whitespace-nowrap">
+            14 herramientas
+          </span>
+        </div>
+      </div>
+
+      <!-- Filters & Search Bar -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-notion-muted dark:text-notion-darkMuted text-xs">🔍</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Buscar herramienta, código (ej: 500-9311), cuchilla, material (vinilo, acrílico, corrugado)..." 
+            class="w-full pl-8 pr-8 py-2 rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder text-xs text-notion-text dark:text-notion-darkText placeholder-notion-muted dark:placeholder-notion-darkMuted focus:outline-none focus:ring-1 focus:ring-papiro-orange transition"
+          >
+          <button id="clearSearchBtn" class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-xs text-notion-muted hover:text-notion-text hidden">✕</button>
+        </div>
+
+        <!-- Select Filters -->
+        <div class="flex items-center space-x-2">
+          <!-- Filter by Module -->
+          <select id="filterModule" class="bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg px-2.5 py-2 text-xs text-notion-text dark:text-notion-darkText focus:outline-none focus:ring-1 focus:ring-papiro-orange">
+            <option value="ALL">Todos los Módulos</option>
+            <option value="Arrastre">Módulo Arrastre</option>
+            <option value="Tangencial">Módulo Tangencial</option>
+            <option value="Rotativo">Módulo Rotativo (HT RM)</option>
+            <option value="Fresado">Módulo Fresado Estándar</option>
+            <option value="Fresado HF">Módulo Fresado HF (48.000 RPM)</option>
+          </select>
+
+          <!-- Filter by Material Family -->
+          <select id="filterFamily" class="bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg px-2.5 py-2 text-xs text-notion-text dark:text-notion-darkText focus:outline-none focus:ring-1 focus:ring-papiro-orange">
+            <option value="ALL">Todas las Familias</option>
+            <option value="Cartón y Papel">Cartón y Papel</option>
+            <option value="Rollo y Vinilos">Rollo y Vinilos</option>
+            <option value="Sintéticos y Plásticos">Sintéticos y Plásticos</option>
+            <option value="Compuestos y Foam">Compuestos y Foam</option>
+            <option value="Madera y Rígidos">Madera y Rígidos</option>
+            <option value="Textiles">Textiles</option>
+            <option value="Industriales">Industriales</option>
+          </select>
+
+          <button id="resetFiltersBtn" class="px-2.5 py-2 rounded-lg text-xs hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted dark:text-notion-darkMuted border border-transparent hover:border-notion-border transition whitespace-nowrap">
+            Limpiar
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Chips Filter -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-2xs">
+        <span class="text-notion-muted dark:text-notion-darkMuted font-mono mr-1 shrink-0">Filtros rápidos:</span>
+        <button data-quick="kiss" class="quick-chip px-2.5 py-1 rounded-full border border-sky-200 dark:border-sky-900 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 hover:opacity-80 transition whitespace-nowrap">🎯 Semicorte / Vinilo</button>
+        <button data-quick="packaging" class="quick-chip px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 hover:opacity-80 transition whitespace-nowrap">📦 Embalaje / Packaging</button>
+        <button data-quick="corrugated" class="quick-chip px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 hover:opacity-80 transition whitespace-nowrap">📄 Dispa & Corrugado 8mm</button>
+        <button data-quick="reboard" class="quick-chip px-2.5 py-1 rounded-full border border-teal-200 dark:border-teal-900 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 hover:opacity-80 transition whitespace-nowrap">🐝 Honeycomb / Re-board (POT)</button>
+        <button data-quick="textile" class="quick-chip px-2.5 py-1 rounded-full border border-purple-200 dark:border-purple-900 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 hover:opacity-80 transition whitespace-nowrap">👕 Textiles / HTRM Ranura 3</button>
+        <button data-quick="rigid" class="quick-chip px-2.5 py-1 rounded-full border border-rose-200 dark:border-rose-900 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 hover:opacity-80 transition whitespace-nowrap">🪵 Acrílico / ACM / Dibond</button>
+        <button data-quick="vcut" class="quick-chip px-2.5 py-1 rounded-full border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:opacity-80 transition whitespace-nowrap">📐 V-Cut & Bisel 45°</button>
+      </div>
+    </div>
+
+    <!-- VIEW 1: NOTION FLOATING CARDS (GALLERY) -->
+    <section id="galleryViewContainer" class="space-y-4">
+      <div id="toolsGalleryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: FULL NOTION DATABASE TABLE -->
+    <section id="tableViewContainer" class="hidden">
+      <div class="rounded-xl border border-notion-border dark:border-notion-darkBorder overflow-x-auto bg-notion-bg dark:bg-notion-darkBg shadow-notion">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-notion-sidebar dark:bg-notion-darkSidebar text-notion-muted dark:text-notion-darkMuted font-mono text-2xs uppercase border-b border-notion-border dark:border-notion-darkBorder">
+            <tr>
+              <th class="py-3 px-4">Herramienta & Código</th>
+              <th class="py-3 px-4">Módulo</th>
+              <th class="py-3 px-4">Familias Compatibles</th>
+              <th class="py-3 px-4">Cuchilla(s) / Bit</th>
+              <th class="py-3 px-4">Espesor Máx</th>
+              <th class="py-3 px-4">Velocidad Rec.</th>
+              <th class="py-3 px-4 text-center">ADC</th>
+              <th class="py-3 px-4 text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="toolsTableBody" class="divide-y divide-notion-border dark:divide-notion-darkBorder">
+            <!-- Rendered via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VIEW 3: KANBAN BOARD BY MODULE -->
+    <section id="boardViewContainer" class="hidden">
+      <div id="kanbanColumnsGrid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- VIEW 4: MATERIAL MATCHER & OFFICIAL RECOMMENDATION MATRIX -->
+    <section id="matcherViewContainer" class="hidden space-y-6">
+      <div class="p-6 rounded-2xl border border-sky-200 dark:border-sky-900 bg-sky-50/50 dark:bg-sky-950/20 space-y-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl">🎯</span>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base text-notion-text dark:text-notion-darkText">Selector Inteligente por Material (Summa 2025 Matrix)</h3>
+            <p class="text-xs text-notion-muted dark:text-notion-darkMuted">Selecciona tu material y obtén la combinación exacta de herramienta, cuchilla recomendada y velocidad continua.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">1. Categoría de Material</label>
+            <select id="matcherCategorySelect" class="w-full bg-white dark:bg-neutral-900 border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs focus:ring-1 focus:ring-sky-500"></select>
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">2. Material Específico</label>
+            <select id="matcherMaterialSelect" class="w-full bg-white dark:bg-neutral-900 border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs focus:ring-1 focus:ring-sky-500"></select>
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">3. Espesor / Gramaje Detectado</label>
+            <input type="text" id="matcherThicknessInput" readonly class="w-full bg-white dark:bg-neutral-900 border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs font-mono text-neutral-600 dark:text-neutral-300">
+          </div>
+        </div>
+
+        <!-- Match Result Card -->
+        <div id="matcherResultBox" class="mt-4 p-4 rounded-xl bg-white dark:bg-neutral-900 border border-sky-300 dark:border-sky-800 shadow-sm">
+          <!-- Dynamic Content -->
+        </div>
+      </div>
+
+      <!-- Complete Official Matrix Table -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Matriz Oficial de Aplicaciones vs Herramientas (F-Series Reference Guide)</h4>
+        <div id="matrixTableContainer" class="rounded-xl border border-notion-border dark:border-notion-darkBorder overflow-x-auto text-xs">
+          <!-- Dynamic Content -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: TOOL DETAIL NOTION SHEET (Side-Peek Drawer) -->
+  <div id="toolDetailModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-notion-bg dark:bg-notion-darkBg w-full max-w-3xl rounded-2xl shadow-notion-float border border-notion-border dark:border-notion-darkBorder overflow-hidden max-h-[92vh] flex flex-col my-auto transition-all">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-notion-border dark:border-notion-darkBorder flex items-center justify-between bg-notion-sidebar dark:bg-notion-darkSidebar">
+        <div class="flex items-center space-x-3">
+          <span id="modalIcon" class="text-2xl p-2 bg-notion-bg dark:bg-notion-darkBg rounded-xl border border-notion-border dark:border-notion-darkBorder shadow-xs">✂️</span>
+          <div>
+            <div id="modalModuleTag" class="text-2xs font-mono uppercase tracking-wider text-notion-muted">MÓDULO TANGENCIAL</div>
+            <h3 id="modalTitle" class="text-base sm:text-lg font-bold text-notion-text dark:text-notion-darkText leading-tight">Herramienta de Semicorte</h3>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="modalEditBtn" class="px-2.5 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-xs font-semibold border border-notion-border dark:border-notion-darkBorder text-sky-600 dark:text-sky-400 flex items-center space-x-1 transition">
+            <span>✏️</span>
+            <span>Editar</span>
+          </button>
+          <button id="modalDeleteBtn" class="px-2.5 py-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-semibold border border-rose-200 dark:border-rose-900 text-rose-600 dark:text-rose-400 flex items-center space-x-1 transition" title="Eliminar del taller del cliente">
+            <span>🗑️</span>
+          </button>
+          <button id="modalCopyBtn" class="px-2.5 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-xs font-medium border border-notion-border dark:border-notion-darkBorder flex items-center space-x-1 transition" title="Copiar ficha técnica">
+            <span>📋</span>
+            <span class="hidden sm:inline">Copiar</span>
+          </button>
+          <button id="modalCloseBtn" class="p-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted text-base">✕</button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div id="modalContentBody" class="p-6 overflow-y-auto space-y-6 text-sm">
+        <!-- Dynamic Content -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3 border-t border-notion-border dark:border-notion-darkBorder bg-notion-sidebar dark:bg-notion-darkSidebar flex items-center justify-between text-2xs text-notion-muted">
+        <span>Papiro • Soluciones de Impresión & Corte Summa</span>
+        <span class="font-mono">#SummaFinish2025</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD / EDIT TOOL FORM (Client Workshop Customization) -->
+  <div id="editToolModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-notion-bg dark:bg-notion-darkBg w-full max-w-2xl rounded-2xl shadow-notion-float border border-notion-border dark:border-notion-darkBorder overflow-hidden max-h-[92vh] flex flex-col my-auto transition-all">
+      <div class="px-6 py-4 border-b border-notion-border dark:border-notion-darkBorder flex items-center justify-between bg-notion-sidebar dark:bg-notion-darkSidebar">
+        <div class="flex items-center space-x-2">
+          <span id="editModalIconPreview" class="text-xl">🛠️</span>
+          <h3 id="editModalTitle" class="font-bold text-sm sm:text-base">Editar Herramienta del Taller</h3>
+        </div>
+        <button id="editModalCloseBtn" class="p-1.5 rounded-md hover:bg-notion-hover dark:hover:bg-notion-darkHover">✕</button>
+      </div>
+
+      <form id="toolForm" class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
+        <input type="hidden" id="formToolId">
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="sm:col-span-2">
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Nombre de la Herramienta *</label>
+            <input type="text" id="formToolName" required class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs focus:ring-1 focus:ring-papiro-orange">
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Emoji Icono</label>
+            <input type="text" id="formToolIcon" value="✂️" maxlength="4" class="w-full text-center bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Código de Pedido Summa *</label>
+            <input type="text" id="formToolCode" required placeholder="ej: 500-9311" class="w-full font-mono bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Módulo Serie F *</label>
+            <select id="formToolModule" class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+              <option value="Arrastre">Módulo de Arrastre</option>
+              <option value="Tangencial">Módulo Tangencial</option>
+              <option value="Rotativo">Módulo Rotativo (HT RM)</option>
+              <option value="Fresado">Módulo Fresado Estándar</option>
+              <option value="Fresado HF">Módulo Fresado HF (Alta Frec.)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Código Módulo</label>
+            <input type="text" id="formModuleCode" placeholder="ej: 500-9310" class="w-full font-mono bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Velocidad Recomendada *</label>
+            <input type="text" id="formToolSpeed" required placeholder="ej: 600 - 800 mm/s" class="w-full font-mono bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Espesor Máximo / Penetración *</label>
+            <input type="text" id="formToolMaxThickness" required placeholder="ej: 8 mm, 25 mm" class="w-full font-mono bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Rango de Gramaje & Capacidad</label>
+          <input type="text" id="formToolGrammage" placeholder="ej: Cartón 300-500 g/m² | Ondulado <= 8 mm" class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+        </div>
+
+        <div>
+          <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Familias de Material (separadas por coma)</label>
+          <input type="text" id="formToolFamilies" placeholder="ej: Cartón y Papel, Rollo y Vinilos" class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+        </div>
+
+        <div>
+          <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Materiales Recomendados (Resumen)</label>
+          <textarea id="formToolMaterials" rows="2" placeholder="ej: Vinilo adhesivo, cartón microcanal, PVC espumado..." class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Calibración ADC</label>
+            <select id="formToolAdc" class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+              <option value="true">● Automática con Sensor ADC</option>
+              <option value="false">▲ Manual (Requerida / Sin Sensor)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Tipo de Proceso</label>
+            <input type="text" id="formToolProcess" placeholder="ej: Corte Pasante, Semicorte, Hendido" class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-2xs font-mono uppercase text-notion-muted mb-1">Notas Técnicas & Training 2025</label>
+          <textarea id="formToolFeatures" rows="2" placeholder="Consejos de operación, resortes, modo F-Performance, GoProduce..." class="w-full bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder rounded-lg p-2 text-xs"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-notion-border dark:border-notion-darkBorder flex items-center justify-end space-x-2">
+          <button type="button" id="editModalCancelBtn" class="px-3 py-1.5 rounded-lg border border-notion-border dark:border-notion-darkBorder hover:bg-notion-hover text-xs">Cancelar</button>
+          <button type="submit" class="px-4 py-1.5 rounded-lg bg-papiro-orange hover:bg-papiro-orangeDark text-white text-xs font-semibold shadow-xs">Guardar Herramienta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: QUICK MACHINE & TRAINING 2025 GUIDE -->
+  <div id="guideModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-notion-bg dark:bg-notion-darkBg w-full max-w-2xl rounded-2xl shadow-notion-float border border-notion-border dark:border-notion-darkBorder overflow-hidden max-h-[90vh] flex flex-col my-auto">
+      <div class="px-6 py-4 border-b border-notion-border dark:border-notion-darkBorder flex items-center justify-between bg-notion-sidebar dark:bg-notion-darkSidebar">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">📘</span>
+          <h3 class="font-bold text-sm sm:text-base">Guía de Seguridad & Modelos Serie F (Training 2025)</h3>
+        </div>
+        <button id="guideCloseBtn" class="p-1.5 rounded-md hover:bg-notion-hover dark:hover:bg-notion-darkHover">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
+        <div class="p-3.5 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200">
+          <strong class="font-semibold block mb-1">⚠️ Protocolo Obligatorio para Cambio de Herramientas:</strong>
+          Al cambiar cualquier módulo o herramienta, siempre haz clic primero en <strong>"Change Tool"</strong> en Summa Axis Control. Esto corta la corriente de los motores para prevenir movimientos repentinos accidentales.
+        </div>
+
+        <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Novedades Clave Training 2025:</h4>
+        <ul class="list-disc pl-5 space-y-1.5 text-notion-text dark:text-notion-darkText">
+          <li><strong>Nueva Summa F1625:</strong> Mesa de 160 × 250 cm con 8 zonas de vacío y 2 bombas inferiores. Permite cortar paneles completos de 4' × 8' (122 × 244 cm) y rollos largos con Kit de Elevación (+10 cm) de serie.</li>
+          <li><strong>Herramienta Ondulada hasta 8 mm:</strong> Con 2 ruedas de compresión lateral patentadas. Se posiciona como la opción ideal para packaging de cartón corrugado, Dispa (3A) y paneles Corruplast hasta 8 mm.</li>
+          <li><strong>Regla de Re-board y Alveolar:</strong> Para paneles Honeycomb densos o núcleos de papel como Re-board, utilizar siempre la herramienta neumática POT con cuchilla dentada.</li>
+          <li><strong>Foam PVC (PVC Espumado):</strong> Cortar hasta 8 mm con Herramienta Ondulada con cuchilla sin rebaba (<em>Burr-free</em>). Para más de 8 mm hasta 22 mm, emplear módulo de fresado con fresa de 6 mm MP. <em>La cuchilla de doble filo se considera Legacy</em>.</li>
+          <li><strong>Fresado HF a 48.000 RPM:</strong> Fresa MP Coated de 3 mm recomendada para Dibond/ACM; fresa de 4 mm Acrílico para metacrilato (con pasada de pulido D6/6 L50/14); fresa de 6 mm MP para Foam PVC y MDF. Funciones GoProduce activas: <em>Drill Holes</em>, <em>Lead-in/Lead-out</em>, <em>Bridges</em> y <em>Auto-inlay</em>.</li>
+          <li><strong>Módulo Rotativo HT RM en Ranura 3:</strong> Debe instalarse siempre en la ranura 3 (ocupa 2 posiciones) y utilizar línea neumática libre de aceite.</li>
+        </ul>
+
+        <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Alineación de Modelos Serie F:</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-center font-mono text-2xs">
+          <div class="p-2 border rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar"><strong>F1612</strong><br>160 × 120 cm<br><span class="text-neutral-500">4 zonas • 1 bomba</span></div>
+          <div class="p-2 border rounded-lg bg-sky-50 dark:bg-sky-950/40 border-sky-300 dark:border-sky-800"><strong>F1625 (2025)</strong><br>160 × 250 cm<br><span class="text-sky-600 dark:text-sky-400 font-bold">8 zonas • 2 bombas</span></div>
+          <div class="p-2 border rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar"><strong>F1432</strong><br>136 × 320 cm<br><span class="text-neutral-500">6 zonas • 1 ext.</span></div>
+          <div class="p-2 border rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar"><strong>F1832</strong><br>184 × 320 cm<br><span class="text-neutral-500">8 zonas • 2 ext.</span></div>
+          <div class="p-2 border rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar"><strong>F3220</strong><br>327 × 210 cm<br><span class="text-neutral-500">7 zonas • 2 ext.</span></div>
+          <div class="p-2 border rounded-lg bg-notion-sidebar dark:bg-notion-darkSidebar"><strong>F3232</strong><br>327 × 320 cm<br><span class="text-neutral-500">14 zonas • 2 ext.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NOTION CONFIRMATION DIALOG (No native confirm/alert) -->
+  <div id="confirmModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+    <div class="bg-notion-bg dark:bg-notion-darkBg w-full max-w-sm rounded-2xl shadow-notion-float border border-notion-border dark:border-notion-darkBorder p-5 space-y-4">
+      <div class="flex items-start space-x-3">
+        <span id="confirmIcon" class="text-2xl p-2 bg-notion-sidebar dark:bg-notion-darkSidebar rounded-xl border border-notion-border dark:border-notion-darkBorder">⚠️</span>
+        <div>
+          <h4 id="confirmTitle" class="font-bold text-sm text-notion-text dark:text-notion-darkText">Confirmar Acción</h4>
+          <p id="confirmDesc" class="text-xs text-notion-muted dark:text-notion-darkMuted mt-1 leading-relaxed">¿Estás seguro de que deseas realizar esta acción?</p>
+        </div>
+      </div>
+      <div class="flex items-center justify-end space-x-2 pt-2 border-t border-notion-border dark:border-notion-darkBorder">
+        <button id="confirmCancelBtn" class="px-3 py-1.5 rounded-lg border border-notion-border dark:border-notion-darkBorder hover:bg-notion-hover text-xs font-medium transition">Cancelar</button>
+        <button id="confirmOkBtn" class="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold shadow-xs transition">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2.5 rounded-xl shadow-notion-float text-xs font-medium flex items-center space-x-2 transition-all transform translate-y-12 opacity-0 pointer-events-none">
+    <span id="toastIcon">💾</span>
+    <span id="toastMsg">Mensaje</span>
+  </div>
+
+  <script>
+    /* Tag Styling Tokens */
+    const TAG_CLASSES = {
+      tagBlue: 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
+      tagGreen: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
+      tagOrange: 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800',
+      tagPurple: 'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800',
+      tagRed: 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800',
+      tagTeal: 'bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800',
+      tagIndigo: 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800'
+    };
+
+    /* Official Summa F-Series Tools Database (Brochure, Reference Guide & Training 2025) */
+    const DEFAULT_SUMMA_DATABASE = [
+      {
+        id: 'kiss-cutting-tool',
+        toolName: 'Herramienta de Semicorte (Kiss-Cutting Tool)',
+        toolCode: '500-9311',
+        icon: '🎯',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagBlue',
+        families: ['Rollo y Vinilos', 'Cartón y Papel'],
+        speedRecommended: '800 - 1000 mm/s',
+        speedNote: 'Máxima aceleración con F-Performance activado (movimiento Z y giro acelerado hasta 40%).',
+        maxThickness: '1.2 mm',
+        grammageRange: 'Papel < 200 g/m² • Vinilos hasta 1.2 mm',
+        materialsSummary: 'Vinilo adhesivo fundido y calandrado, láminas de ventana (solar), arenado (sandblast), magnético y pancartas PVC.',
+        processType: 'Semicorte de precisión con nariz de apoyo',
+        adcCompatible: true,
+        adcProcedure: 'Automático con sensor óptico ADC (se retira la punta de nariz para calibración de origen).',
+        springRanges: '3 resortes: Amarillo (<120 g), Azul (<650 g), Rojo (<2000 g).',
+        keyFeatures: 'Permite configuración de Doble Semicorte instalando 2 herramientas en el cabezal (una kiss-cut y otra thru-cut).',
+        bladeTypes: [
+          { name: 'Cuchilla tangencial estándar 36°', code: '390-534', angle: '36°', maxDepth: '0.25 mm', desc: 'Vinilo estándar y papel fino' },
+          { name: 'Cuchilla tangencial sandblast 60°', code: '390-550', angle: '60°', maxDepth: '1.20 mm', desc: 'Material arenado grueso y reflectivo' },
+          { name: 'Cuchilla tangencial doble filo 36°', code: '390-551', angle: '36°', maxDepth: '0.25 mm', desc: 'Mayor durabilidad en tiradas largas' },
+          { name: 'Cuchilla tangencial 45° cuña 40/25°', code: '390-560', angle: '45°', maxDepth: '1.00 mm', desc: 'Vinilos densos y films magnéticos' }
+        ],
+        accessories: ['Nariz de apoyo 36° (395-348)', 'Herramienta instalación cuchillas (390-553)']
+      },
+      {
+        id: 'corrugated-tool',
+        toolName: 'Herramienta Ondulada (Corrugated Tool 2025)',
+        toolCode: '500-9321',
+        icon: '📦',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagGreen',
+        families: ['Cartón y Papel', 'Sintéticos y Plásticos', 'Compuestos y Foam'],
+        speedRecommended: '600 - 800 mm/s',
+        speedNote: 'Capacidad oficial ampliada a 8 mm en Training 2025. Excelente acabado suave sin rebabas.',
+        maxThickness: '8 mm',
+        grammageRange: 'Cartón 400 - 700 g/m² • Microcanal B, C, E, F, EB, EE, EF hasta 8 mm',
+        materialsSummary: 'Cartón corrugado de embalaje, Dispa (3A), Corruplast (0-8 mm), Foam PVC (≤8 mm con cuchilla Burr-free) y cartón gris.',
+        processType: 'Compresión lateral y corte tangencial simultáneo',
+        adcCompatible: true,
+        adcProcedure: 'Calibración de altura con sensor ADC. Ruedas laterales ajustables.',
+        springRanges: 'Control dinámico tangencial con amortiguación integrada.',
+        keyFeatures: '2 ruedas de compresión lateral patentadas que previenen el desgarre exterior del liner. Sustituye a la cuchilla de doble filo en Foam PVC ≤8 mm.',
+        bladeTypes: [
+          { name: 'Cuchilla de corte ondulada', code: '500-9820', angle: 'Especial ondulada', maxDepth: '8.0 mm', desc: 'Diseño reforzado para embalaje y Dispa' }
+        ],
+        accessories: ['Juego de 2 ruedas de compresión lateral', 'Kit de ajuste']
+      },
+      {
+        id: 'bevel-cut-tool',
+        toolName: 'Herramienta de Corte en Bisel (Bevel-Cut Tool)',
+        toolCode: '500-9316',
+        icon: '📐',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagIndigo',
+        families: ['Compuestos y Foam', 'Cartón y Papel', 'Industriales'],
+        speedRecommended: '300 - 500 mm/s',
+        speedNote: 'Velocidad regulada para mantener precisión milimétrica en curvas y ranuras en V.',
+        maxThickness: '15 mm (Bisel hasta 5 mm)',
+        grammageRange: 'Fieltro deco y placas densas de hasta 15 mm',
+        materialsSummary: 'PET-Felt acústico, fieltro deco, cartón gris, display board, caucho y cartón compacto de lujo.',
+        processType: 'Corte en bisel a 45° estático y ranuras en V para curvas',
+        adcCompatible: false,
+        adcProcedure: 'Calibración manual requerida (se introduce grosor exacto y offset lateral en Axis Control).',
+        springRanges: 'Presión controlada mecánicamente con cuchilla corta rígida.',
+        keyFeatures: 'Permite cortar curvas y ranuras a 45° con cuchilla simétrica corta de alta rigidez.',
+        bladeTypes: [
+          { name: 'Cuchilla de corte en bisel 45°', code: '500-9827', angle: '45° simétrica', maxDepth: '5.0 mm bisel', desc: 'Ideal para PET-felt y packaging rígido' }
+        ],
+        accessories: ['Capuchón protector de seguridad']
+      },
+      {
+        id: 'creasing-tools',
+        toolName: 'Herramientas de Hendido (Creasing Wheels & D50)',
+        toolCode: '500-9324 / 500-9329',
+        icon: '🥢',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagOrange',
+        families: ['Cartón y Papel', 'Sintéticos y Plásticos'],
+        speedRecommended: '800 - 1000 mm/s',
+        speedNote: 'Configurar "Flute direction offset" en GoProduce al cruzar canales de cartón.',
+        maxThickness: '6 mm (corrugado)',
+        grammageRange: 'Papel < 200 g/m² • Folding 300-500 g/m² • Corrugado 1.5 - 6 mm',
+        materialsSummary: 'Cartón corrugado simple y doble canal (B, C, A, EE, BC), hojas de polipropileno ≤ 1.2 mm y cartoncillo.',
+        processType: 'Marcado y hendido direccional sin fisurar',
+        adcCompatible: true,
+        adcProcedure: 'Medición automática con ADC. Admite compensación independiente en eje X e Y.',
+        springRanges: 'Presión ajustable por software en GoProduce y Axis Control.',
+        keyFeatures: 'Rueda destacada D50 R1.5 (500-9324) para corrugado pesado de doble canal.',
+        bladeTypes: [
+          { name: 'Herramienta hendido D50 R1.5', code: '500-9324', angle: 'Rueda D50', maxDepth: '6.0 mm', desc: 'Cartón ondulado simple y doble flauta (Training 2025)' },
+          { name: 'Herramienta hendido D25 R3 W8', code: '500-9325', angle: 'Rueda D25', maxDepth: '5.0 mm', desc: 'Canal C y B pesado' },
+          { name: 'Herramienta hendido D25 R1.5 W8', code: '500-9326', angle: 'Rueda D25', maxDepth: '4.0 mm', desc: 'Microcanal E y folding grueso' },
+          { name: 'Herramienta hendido D25 R0.75 W1.5', code: '500-9327', angle: 'Rueda D25', maxDepth: '2.5 mm', desc: 'Cartón compacto y polipropileno' },
+          { name: 'Herramienta hendido D15 2pt', code: '500-9328', angle: 'Rueda D15', maxDepth: '1.2 mm', desc: 'Cartulina y folding 300-500g' },
+          { name: 'Herramienta hendido D15 1pt', code: '500-9329', angle: 'Rueda D15', maxDepth: '0.8 mm', desc: 'Papel fino y packaging ligero' }
+        ],
+        accessories: ['Juegos de ruedas D15, D25 y D50']
+      },
+      {
+        id: 'single-edge-cutout',
+        toolName: 'Herramienta Corte Un Solo Filo (Single-Edge Cutout)',
+        toolCode: '500-9312',
+        icon: '🔪',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagBlue',
+        families: ['Cartón y Papel', 'Sintéticos y Plásticos', 'Compuestos y Foam'],
+        speedRecommended: '600 - 800 mm/s',
+        speedNote: 'Capuchón protector con disco deslizante que fija la profundidad exacta.',
+        maxThickness: '6 mm',
+        grammageRange: 'Cartón folding 300-500 g/m² • Hojas plásticas ≤ 1.2 mm',
+        materialsSummary: 'Cartón folding, cartón pluma ≤ 2 mm, polipropileno ≤ 1.2 mm, policarbonato ≤ 0.6 mm, PVC magnético.',
+        processType: 'Corte detallado con capuchón protector',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC. Mide profundidad y origen lateral.',
+        springRanges: 'Fuerza tangencial vertical 10 kg.',
+        keyFeatures: 'Diseñada para cortes con detalles muy finos y esquinas vivas.',
+        bladeTypes: [
+          { name: 'Cuchilla corte un solo filo 65°', code: '500-9801', angle: '65°', maxDepth: '6.0 mm', desc: 'Corte pasante ultra detallado' }
+        ],
+        accessories: ['Guía de protección cuchilla un solo filo (500-3303)', 'Disco deslizante']
+      },
+      {
+        id: 'double-edge-cutout',
+        toolName: 'Herramienta Corte Doble Filo (Double-Edge Cutout)',
+        toolCode: '500-9313',
+        icon: '🗡️',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagBlue',
+        families: ['Rollo y Vinilos', 'Cartón y Papel', 'Sintéticos y Plásticos'],
+        speedRecommended: '600 - 800 mm/s',
+        speedNote: 'Corta por ambos lados de la cuchilla, minimizando el desgaste.',
+        maxThickness: '5 mm',
+        grammageRange: 'Sustratos rígidos y semirrígidos hasta 5 mm',
+        materialsSummary: 'Vinilo adhesivo, cartón 300-500g, pancartas PVC, policarbonato ≤ 0.6 mm, reflectivos. (Legacy para Foam PVC).',
+        processType: 'Corte pasante bidireccional',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC.',
+        springRanges: 'Fuerza vertical 10 kg, horizontal 20 kg.',
+        keyFeatures: 'Menor fricción gracias al doble filo templado.',
+        bladeTypes: [
+          { name: 'Cuchilla doble filo 50°', code: '500-9802', angle: '50°', maxDepth: '3.0 mm', desc: 'Material rígido fino' },
+          { name: 'Cuchilla doble filo 60°', code: '500-9803', angle: '60°', maxDepth: '5.0 mm', desc: 'Sintéticos hasta 5 mm' },
+          { name: 'Cuchilla doble filo 50° Sin rebabas (Burr-Free)', code: '500-9804', angle: '50°', maxDepth: '3.0 mm', desc: 'Corte sin rebabas en polímeros' }
+        ],
+        accessories: ['Guía de protección doble cara (500-3315)']
+      },
+      {
+        id: 'heavy-duty-cutout',
+        toolName: 'Herramienta de Corte para Rígidos (Heavy-Duty Cutout)',
+        toolCode: '500-9314',
+        icon: '🪓',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagOrange',
+        families: ['Sintéticos y Plásticos', 'Compuestos y Foam', 'Cartón y Papel'],
+        speedRecommended: '400 - 600 mm/s',
+        speedNote: 'Permite penetrar materiales gruesos y resistentes.',
+        maxThickness: '15 mm',
+        grammageRange: 'Materiales densos de hasta 15 mm',
+        materialsSummary: 'Plástico corrugado PP ≤ 5 mm, PVC expandido, cartón pluma con papel ≤ 5 mm, planchas de barniz offset.',
+        processType: 'Corte pasante de alto calibre',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC.',
+        springRanges: 'Tracción tangencial reforzada.',
+        keyFeatures: 'Excelente robustez estructural para materiales densos.',
+        bladeTypes: [
+          { name: 'Cuchilla para rígidos 45°/90°', code: '500-9807', angle: '45°-90°', maxDepth: '15.0 mm', desc: 'Corte pesado sin oscilación' }
+        ],
+        accessories: ['Tapa de seguridad protectora']
+      },
+      {
+        id: 'v-cut-tools',
+        toolName: 'Herramientas de Corte en V (V-Cut Tools 0° - 45°)',
+        toolCode: '500-9340 / 500-9344',
+        icon: '📐',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagPurple',
+        families: ['Compuestos y Foam', 'Cartón y Papel'],
+        speedRecommended: '300 - 600 mm/s',
+        speedNote: 'Ángulo prefijado en 5 herramientas para plegar cajas y displays 3D.',
+        maxThickness: '18 - 27 mm',
+        grammageRange: 'Planchas de cartón alveolar y foam de 10 a 27 mm',
+        materialsSummary: 'Cartón alveolar (Honeycomb), Re-board, cartón pluma con papel, tableros compuestos (sandwich).',
+        processType: 'Corte en ángulo para ingletes y plegados 3D',
+        adcCompatible: true,
+        adcProcedure: 'Medición automática ADC (queda calibrada a 0.5 mm sobre la mesa para no cortar el liner inferior).',
+        springRanges: 'Mecanismo angular rígido en 2 secciones con plantilla de cambio rápido.',
+        keyFeatures: 'Herramientas: 0° (500-9340), 15° (500-9341), 22.5° (500-9342), 30° (500-9343), 45° (500-9344).',
+        bladeTypes: [
+          { name: 'Cuchilla V-Cut estándar 0.9 mm', code: '500-9825', angle: 'Fijado por herramienta', maxDepth: '18-27 mm', desc: 'Corte en V general' },
+          { name: 'Cuchilla V-Cut Metal Duro (Carbide)', code: '500-9826', angle: 'Fijado por herramienta', maxDepth: '18-27 mm', desc: 'Mayor vida útil en paneles abrasivos' }
+        ],
+        accessories: ['Accesorio de posicionamiento rápido de cuchilla']
+      },
+      {
+        id: 'perforating-tool',
+        toolName: 'Herramienta de Perforación (Perforating Tool)',
+        toolCode: '500-9315',
+        icon: '🎟️',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagTeal',
+        families: ['Cartón y Papel', 'Sintéticos y Plásticos'],
+        speedRecommended: '800 - 1000 mm/s',
+        speedNote: 'Corta líneas de perforación hasta 25 veces más rápido que una herramienta oscilante EOT.',
+        maxThickness: '3 mm',
+        grammageRange: 'Cartón sólido, polipropileno y microcanal',
+        materialsSummary: 'Cartón plegable, cartón corrugado fino, hojas de PP para estuches y líneas de dobladillo fácil.',
+        processType: 'Perforado rotativo con cuchillas dentadas',
+        adcCompatible: true,
+        adcProcedure: 'Requiere calibración precisa con ADC para no dañar el tapiz.',
+        springRanges: 'Presión calibrada en software.',
+        keyFeatures: 'Crea pliegues de 90° limpios y ahorra mucho tiempo en armado manual.',
+        bladeTypes: [
+          { name: 'Cuchilla perforación 1x1 mm (12 TPI)', code: '500-9890', angle: 'Dentada', maxDepth: '1.1 mm', desc: 'Cartón fino y polipropileno' },
+          { name: 'Cuchilla perforación 1.7x1.7 mm (8 TPI)', code: '500-9891', angle: 'Dentada', maxDepth: '1.1 mm', desc: 'Cartón sólido medio' },
+          { name: 'Cuchilla perforación 3x3 mm (4 TPI)', code: '500-9892', angle: 'Dentada', maxDepth: '4.0 mm', desc: 'Cartón ondulado microcanal' },
+          { name: 'Cuchilla perforación 5x5 mm (3 TPI)', code: '500-9893', angle: 'Dentada', maxDepth: '4.0 mm', desc: 'Corrugado resistente' }
+        ],
+        accessories: ['Soporte rotatorio con tuerca de 10 mm']
+      },
+      {
+        id: 'eot-oscillating',
+        toolName: 'Herramienta Electrónica Oscilante (EOT)',
+        toolCode: '500-9320',
+        icon: '⚡',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagPurple',
+        families: ['Cartón y Papel', 'Compuestos y Foam', 'Industriales'],
+        speedRecommended: '200 - 300 mm/s',
+        speedNote: 'Motor eléctrico de 1 kW, 12.000 RPM con 1 mm de carrera oscilante.',
+        maxThickness: '18 mm (hasta 24 mm sin capuchón)',
+        grammageRange: 'Cartón microcanal BC, B, C, E ≤ 10 mm • Foamcore ≤ 10 mm',
+        materialsSummary: 'Cartón corrugado, cartón pluma con papel, nido de abeja < 10 mm, material de juntas industriales.',
+        processType: 'Oscilación eléctrica de alta frecuencia',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC. Cable sensor conectado a unidad central.',
+        springRanges: 'Frecuencia seleccionable (Standard / High) en Axis Control.',
+        keyFeatures: 'Bajo mantenimiento, ideal para materiales semiblandos que se desmoronan al corte estático.',
+        bladeTypes: [
+          { name: 'EOT Cuchilla L25 65°', code: '500-9800', angle: '65°', maxDepth: '5.0 mm', desc: 'Corte fino rápido' },
+          { name: 'EOT Cuchilla L25 65°-80°', code: '500-9810', angle: '65°-80°', maxDepth: '11.0 mm', desc: 'Corrugado B y C' },
+          { name: 'EOT Cuchilla L25 65°-85°', code: '500-9811', angle: '65°-85°', maxDepth: '11.0 mm', desc: 'Foamcore denso' },
+          { name: 'EOT Cuchilla L28 65°-85°', code: '500-9812', angle: '65°-85°', maxDepth: '14.0 mm', desc: 'Cartón alveolar fino' },
+          { name: 'EOT Cuchilla L25 0°-75°', code: '500-9813', angle: '0°-75°', maxDepth: '6.0 mm', desc: 'Juntas y caucho' },
+          { name: 'EOT Cuchilla L38 45°-86°', code: '500-9814', angle: '45°-86°', maxDepth: '24.0 mm', desc: 'Espuma de media densidad' },
+          { name: 'EOT Cuchilla L33 45°-85°', code: '500-9815', angle: '45°-85°', maxDepth: '19.0 mm', desc: 'Placas sándwich de 18 mm' }
+        ],
+        accessories: ['Guía de cuchilla de recambio (500-3313)', 'Disco deslizante']
+      },
+      {
+        id: 'pot-pneumatic',
+        toolName: 'Herramienta Neumática Oscilante (POT & POT-L)',
+        toolCode: '500-9350 / 500-9358',
+        icon: '💨',
+        module: 'Tangencial',
+        moduleCode: '500-9310',
+        colorTag: 'tagRed',
+        families: ['Compuestos y Foam', 'Cartón y Papel', 'Industriales'],
+        speedRecommended: '150 - 300 mm/s',
+        speedNote: 'Carrera neumática de 8 mm y 150 Hz. Regla 2025: OBLIGATORIA para paneles Re-board.',
+        maxThickness: '25 mm (POT) / 42 mm (POT-L)',
+        grammageRange: 'Paneles Honeycomb densos, Re-board y espumas pesadas hasta 42 mm',
+        materialsSummary: 'Re-board, Honeycomb ≥ 10 mm, cartón corrugado de doble y triple canal, espuma de embalaje y caucho.',
+        processType: 'Oscilación neumática de carrera profunda (8 mm)',
+        adcCompatible: true,
+        adcProcedure: 'Medición con ADC (requiere verificación de presión neumática estable y tapiz de fresado).',
+        springRanges: 'Conexión a línea neumática dedicada (puerto POT/L).',
+        keyFeatures: 'POT estándar (500-9350 con disco deslizante hasta 25 mm). POT-L (500-9358 sin disco para espumas hasta 42 mm).',
+        bladeTypes: [
+          { name: 'POT Cuchilla punta plana L20 T0.63', code: '500-9830', angle: 'Plana', maxDepth: '18.0 mm', desc: 'Espumas y cartón denso' },
+          { name: 'POT Cuchilla punta plana L27 T0.63', code: '500-9831', angle: 'Plana', maxDepth: '25.0 mm', desc: 'Cartón alveolar y panel sándwich' },
+          { name: 'POT Cuchilla punta plana L20 T1.5', code: '500-9832', angle: 'Plana reforzada', maxDepth: '18.0 mm', desc: 'Caucho y materiales de alta fricción' },
+          { name: 'POT Cuchilla serrada dentada L27 T1.0', code: '500-9833', angle: 'Serrated', maxDepth: '25.0 mm', desc: 'Re-board y núcleos de papel compactos (2025)' },
+          { name: 'POT Cuchilla en punta L20 T1.0', code: '500-9834', angle: 'Punta', maxDepth: '16.0 mm', desc: 'Detalles en espumas densas' },
+          { name: 'POT-L Cuchilla larga L50 T1.0', code: '500-9835', angle: 'Larga L50', maxDepth: '42.0 mm', desc: 'Solo para herramienta POT-L en espumas gruesas' }
+        ],
+        accessories: ['Disco deslizante POT (500-9331)', 'Adaptadores neumáticos']
+      },
+      {
+        id: 'htrm-rotary',
+        toolName: 'Módulo Rotativo de Alto Par (HT RM)',
+        toolCode: '500-9361',
+        icon: '⚙️',
+        module: 'Rotativo',
+        moduleCode: '500-9361',
+        colorTag: 'tagPurple',
+        families: ['Textiles', 'Industriales', 'Rollo y Vinilos'],
+        speedRecommended: '600 - 1000 mm/s',
+        speedNote: 'Debe instalarse SIEMPRE en Ranura 3 (ocupa ranuras 2 y 3). Aire limpio sin aceite.',
+        maxThickness: '5 mm',
+        grammageRange: 'Textiles porosos de una capa, pancartas y lonas hasta 5 mm',
+        materialsSummary: 'Poliéster tejido con o sin recubrimiento, lonas frontlit/backlit, tejidos laminados, vellón, fieltro y tela técnica.',
+        processType: 'Corte por cuchilla rotatoria motorizada decagonal',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC. Mide altura y centro de la cuchilla giratoria.',
+        springRanges: 'Mínima fuerza horizontal: el tejido poroso no se levanta de la mesa de vacío.',
+        keyFeatures: 'Corta textiles difíciles de una capa sin atascar hilos gracias a su rotación tangencial constante.',
+        bladeTypes: [
+          { name: 'Cuchilla decagonal D25', code: '500-9860', angle: 'Decagonal Ø25 mm', maxDepth: '1.5 mm', desc: 'Tejidos finos y banderas' },
+          { name: 'Cuchilla decagonal D28', code: '500-9861', angle: 'Decagonal Ø28 mm', maxDepth: '3.0 mm', desc: 'Lonas y tejidos con recubrimiento' },
+          { name: 'Cuchilla decagonal D32', code: '500-9862', angle: 'Decagonal Ø32 mm', maxDepth: '5.0 mm', desc: 'Fieltro y sustratos gruesos de hasta 5 mm' }
+        ],
+        accessories: ['Llave de 10 mm para reemplazo de cuchillas', 'Manguera neumática de limpieza']
+      },
+      {
+        id: 'standard-router',
+        toolName: 'Módulo de Fresado Estándar (1000W / 1400W)',
+        toolCode: '500-9330 / 500-9363',
+        icon: '🌀',
+        module: 'Fresado',
+        moduleCode: '500-9330',
+        colorTag: 'tagOrange',
+        families: ['Madera y Rígidos', 'Sintéticos y Plásticos', 'Compuestos y Foam'],
+        speedRecommended: '100 - 300 mm/s',
+        speedNote: '25.000 RPM. Motor Kress/FME. Fresa de 1400W procesa 30% más rápido que 1000W.',
+        maxThickness: '22 mm',
+        grammageRange: 'Paneles rígidos, madera y acrílico de 2 a 22 mm',
+        materialsSummary: 'Foam PVC > 8 mm, acrílico (Plexi), MDF, policarbonato > 1 mm, panel composite ACP/ACM y madera.',
+        processType: 'Fresado y grabado CNC con extracción de virutas',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC. Requiere alfombrilla de fresado obligatoria.',
+        springRanges: 'Regulación de velocidad mecánica (rueda 1 a 6 en motor).',
+        keyFeatures: 'Kit de extracción de polvo por cepillo de aspiración. Ocupa ranuras 2 y 3.',
+        bladeTypes: [
+          { name: 'Fresa D3/3 L38/11 1FL UC', code: '500-9850', angle: '1 flauta Up-Cut', maxDepth: '11.0 mm', desc: 'Acrílico y plásticos finos' },
+          { name: 'Fresa D4/4 L50/12 1FL UC', code: '500-9852', angle: '1 flauta Up-Cut', maxDepth: '12.0 mm', desc: 'Panel composite y Foam PVC' },
+          { name: 'Fresa D6/10 L50 90° B 2FL', code: '500-9863', angle: '90° grabado en V', maxDepth: '10.0 mm', desc: 'Ranurado en V y biselado' },
+          { name: 'Fresa D6/6 L50/22 2FL UC/DC', code: '500-9864', angle: '2 flautas Up/Down Cut', maxDepth: '22.0 mm', desc: 'Madera contrachapada y MDF' }
+        ],
+        accessories: ['Pinzas collet 3, 4, 6 y 8 mm', 'Tapiz protector de fresado (500-9333)']
+      },
+      {
+        id: 'hf-router',
+        toolName: 'Módulo de Fresado de Alta Frecuencia (HF Router 48k)',
+        toolCode: '500-9372 / 500-9375',
+        icon: '🌪️',
+        module: 'Fresado HF',
+        moduleCode: '500-9372',
+        colorTag: 'tagRed',
+        families: ['Madera y Rígidos', 'Sintéticos y Plásticos', 'Compuestos y Foam'],
+        speedRecommended: '200 - 500 mm/s',
+        speedNote: '48.000 RPM. Husillo neumático de alta frecuencia balanceado. Productividad máxima 2025.',
+        maxThickness: '22 mm',
+        grammageRange: 'Paneles de alta densidad de hasta 22 mm',
+        materialsSummary: 'Dibond/ACM (con broca 3mm MP Coated), Metacrilato/Acrílico (con broca 4mm Acrílico + pulido), Foam PVC y MDF (broca 6mm MP).',
+        processType: 'Fresado HF de alto rendimiento con acabado espejo',
+        adcCompatible: true,
+        adcProcedure: 'Automático con ADC. Detección neumática de broca.',
+        springRanges: 'Sujeción neumática rápida sin llaves con palanca posterior.',
+        keyFeatures: 'Compatible con funciones GoProduce 2025: Drill Holes, Lead-in/Lead-out, Bridges y Auto-inlay. Ciclo Run-in automático.',
+        bladeTypes: [
+          { name: 'Fresa HF D6/3 L50/06 MP Coated 1FL', code: '500-9854', angle: '1 flauta recubierta', maxDepth: '6.0 mm', desc: 'Fresa preferida para Dibond / ACM (Training 2025)' },
+          { name: 'Fresa HF D6/4 L50/12 Acrílico 1FL', code: '500-9856', angle: '1 flauta acrílico', maxDepth: '12.0 mm', desc: 'Fresa preferida para Metacrilato / Plexi' },
+          { name: 'Fresa HF D6/6 L50/12 MP 1FL BAL', code: '500-9857', angle: '1 flauta balanceada', maxDepth: '12.0 mm', desc: 'Fresa preferida para Foam PVC y MDF' },
+          { name: 'Fresa HF D6/6 L58/22 MP 1FL BAL', code: '500-9858', angle: '1 flauta balanceada', maxDepth: '22.0 mm', desc: 'Fresado pasante de paneles gruesos' },
+          { name: 'Fresa HF D6/6 L50/14 Pulido (Polishing)', code: '500-9859', angle: 'Pulido espejo', maxDepth: '14.0 mm', desc: 'Pasada de acabado transparente en cantos de metacrilato' }
+        ],
+        accessories: ['Pinza collet 6 mm HF (500-9379)', 'Kit de cepillo de aspiración']
+      },
+      {
+        id: 'drag-knife-module',
+        toolName: 'Módulo de Arrastre (Drag Head Module)',
+        toolCode: '500-9300',
+        icon: '✏️',
+        module: 'Arrastre',
+        moduleCode: '500-9300',
+        colorTag: 'tagBlue',
+        families: ['Rollo y Vinilos', 'Cartón y Papel'],
+        speedRecommended: '800 - 1000 mm/s',
+        speedNote: 'Módulo ultra rápido de serie incluido con todas las mesas de la Serie F.',
+        maxThickness: '0.8 mm',
+        grammageRange: 'Papel < 200 g/m² • Vinilo adhesivo estándar',
+        materialsSummary: 'Vinilo adhesivo estándar, papel de plotter, dibujo técnico con bolígrafo y rotuladores de fibra.',
+        processType: 'Semicorte por arrastre y dibujo técnico vectorial',
+        adcCompatible: false,
+        adcProcedure: 'Calibración manual de presión y avance (no pasa por sensor ADC).',
+        springRanges: 'Presión hasta 600 g controlada por muelle.',
+        keyFeatures: 'Permite alternar semicorte de vinilo y anotaciones sin ocupar ranuras tangenciales.',
+        bladeTypes: [
+          { name: 'Cuchilla arrastre estándar 36°', code: '391-360', angle: '36°', maxDepth: '0.25 mm', desc: 'Vinilo estándar' },
+          { name: 'Cuchilla arrastre 60°', code: '391-231', angle: '60°', maxDepth: '0.60 mm', desc: 'Material reflectivo y grueso' },
+          { name: 'Cuchilla arrastre 55°', code: '391-358', angle: '55°', maxDepth: '0.80 mm', desc: 'Láminas densas' }
+        ],
+        accessories: ['Portacuchillas de arrastre (391-332)', 'Rotuladores de fibra MP06BK', 'Porta-rotulador universal (395-434)']
+      }
+    ];
+
+    /* Material Matrix based on Summa Brochure & Training 2025 */
+    const MATERIAL_MATRIX = [
+      { category: 'Cartón y Papel', name: 'Papel < 200 g/m²', rec: 'Módulo Arrastre / Kiss-Cut', alt: 'Single-Edge Cutout', speed: '1000 mm/s', maxThick: '< 0.5 mm' },
+      { category: 'Cartón y Papel', name: 'Cartoncillo 300 - 500 g/m²', rec: 'Single-Edge Cutout', alt: 'Corrugated Tool', speed: '800 mm/s', maxThick: '1.2 mm' },
+      { category: 'Cartón y Papel', name: 'Cartón Corrugado B (3 mm)', rec: 'Corrugated Tool 2025', alt: 'EOT', speed: '800 mm/s', maxThick: '3 mm' },
+      { category: 'Cartón y Papel', name: 'Cartón Corrugado C (4 mm)', rec: 'Corrugated Tool 2025', alt: 'EOT', speed: '700 mm/s', maxThick: '4 mm' },
+      { category: 'Cartón y Papel', name: 'Cartón Corrugado BC (7-8 mm)', rec: 'Corrugated Tool / POT', alt: 'EOT (<= 10mm)', speed: '500 mm/s', maxThick: '8 mm' },
+      { category: 'Cartón y Papel', name: 'Dispa (3A Bubble Corrugated)', rec: 'Corrugated Tool (500-9321)', alt: 'EOT', speed: '700 mm/s', maxThick: '3.8 mm' },
+      { category: 'Cartón y Papel', name: 'Honeycomb (Nido de Abeja <10mm)', rec: 'EOT', alt: 'V-Cut Tools', speed: '300 mm/s', maxThick: '10 mm' },
+      { category: 'Cartón y Papel', name: 'Honeycomb / Re-board (>= 10mm)', rec: 'POT Cuchilla Dentada (500-9833)', alt: 'V-Cut 45°', speed: '250 mm/s', maxThick: '25 mm' },
+      { category: 'Rollo y Vinilos', name: 'Vinilo Adhesivo Monomérico/Polimérico', rec: 'Kiss-Cutting Tool', alt: 'Módulo Arrastre', speed: '1000 mm/s', maxThick: '0.25 mm' },
+      { category: 'Rollo y Vinilos', name: 'Lámina de Ventana / Solar', rec: 'Kiss-Cutting Tool 60°', alt: 'Single-Edge', speed: '700 mm/s', maxThick: '1.2 mm' },
+      { category: 'Rollo y Vinilos', name: 'Lonas PVC / Banner', rec: 'Single-Edge / Heavy Duty', alt: 'HT RM Rotativo', speed: '800 mm/s', maxThick: '2 mm' },
+      { category: 'Sintéticos y Plásticos', name: 'Corruplast (0 - 8 mm)', rec: 'Corrugated Tool 2025', alt: 'Heavy Duty', speed: '600 mm/s', maxThick: '8 mm' },
+      { category: 'Sintéticos y Plásticos', name: 'Foam PVC (PVC Espumado <= 8mm)', rec: 'Corrugated Tool (Burr-free)', alt: '0° V-Cut (rectos)', speed: '500 mm/s', maxThick: '8 mm' },
+      { category: 'Sintéticos y Plásticos', name: 'Foam PVC (PVC Espumado > 8mm a 22mm)', rec: 'Fresado HF (Fresa 6mm MP)', alt: 'Fresa Estándar 1400W', speed: '250 mm/s', maxThick: '22 mm' },
+      { category: 'Sintéticos y Plásticos', name: 'Metacrilato / Acrílico (Plexi)', rec: 'Fresado HF (Fresa 4mm Acrílico)', alt: '+ Pasada Pulido (500-9859)', speed: '200 mm/s', maxThick: '20 mm' },
+      { category: 'Compuestos y Foam', name: 'Dibond / ACP / ACM', rec: 'Fresado HF (Fresa 3mm MP Coated)', alt: 'Fresa 4mm MP', speed: '300 mm/s', maxThick: '4 mm' },
+      { category: 'Compuestos y Foam', name: 'PET-Felt Acústico', rec: 'Bevel-Cut Tool 45° (500-9316)', alt: 'POT', speed: '350 mm/s', maxThick: '12 mm' },
+      { category: 'Compuestos y Foam', name: 'Espuma de Embalaje (>20 mm a 42 mm)', rec: 'POT-L (Cuchilla L50 500-9835)', alt: 'POT estándar', speed: '200 mm/s', maxThick: '42 mm' },
+      { category: 'Madera y Rígidos', name: 'MDF y Madera Contrachapada', rec: 'Fresado HF (Fresa 6mm MP BAL)', alt: 'Fresa 6mm UC/DC', speed: '180 mm/s', maxThick: '22 mm' },
+      { category: 'Textiles', name: 'Poliéster y Textiles de una capa', rec: 'HT RM Rotativo (Ranura 3)', alt: 'Cuchilla D28', speed: '900 mm/s', maxThick: '3 mm' }
+    ];
+
+    /* Application State */
+    const STORAGE_KEY = 'papiro_summa_tools_catalog_2025';
+    let SUMMA_DATABASE = loadToolsFromStorage();
+    let currentView = 'gallery';
+    let currentFilterModule = 'ALL';
+    let currentFilterFamily = 'ALL';
+    let currentSearchTerm = '';
+    let currentModalTool = null;
+    let pendingConfirmAction = null;
+
+    /* Storage Helpers */
+    function loadToolsFromStorage() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {
+        console.warn('Storage not available, using defaults:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_SUMMA_DATABASE));
+    }
+
+    function saveToolsToStorage(data) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {
+        console.warn('Could not save to storage:', e);
+      }
+    }
+
+    /* Theme Toggle */
+    function initTheme() {
+      const isDark = localStorage.getItem('theme') === 'dark' || 
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('themeIcon').textContent = '☀️';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('themeIcon').textContent = '🌙';
+      }
+    }
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+    });
+
+    /* Toast Notification */
+    function showToast(message, icon = '💾') {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMsg');
+      const ic = document.getElementById('toastIcon');
+      if (!toast || !msg) return;
+      msg.textContent = message;
+      ic.textContent = icon;
+      toast.classList.remove('translate-y-12', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-12', 'opacity-0');
+      }, 3000);
+    }
+
+    /* Confirmation Modal */
+    function openConfirm(title, message, icon, onConfirm) {
+      const modal = document.getElementById('confirmModal');
+      document.getElementById('confirmTitle').textContent = title;
+      document.getElementById('confirmDesc').textContent = message;
+      document.getElementById('confirmIcon').textContent = icon || '⚠️';
+      pendingConfirmAction = onConfirm;
+      modal.classList.remove('hidden');
+    }
+
+    document.getElementById('confirmCancelBtn').addEventListener('click', () => {
+      document.getElementById('confirmModal').classList.add('hidden');
+      pendingConfirmAction = null;
+    });
+
+    document.getElementById('confirmOkBtn').addEventListener('click', () => {
+      document.getElementById('confirmModal').classList.add('hidden');
+      if (typeof pendingConfirmAction === 'function') {
+        pendingConfirmAction();
+      }
+      pendingConfirmAction = null;
+    });
+
+    /* Filtering Logic */
+    function getFilteredTools() {
+      return SUMMA_DATABASE.filter(tool => {
+        // Filter by Module
+        if (currentFilterModule !== 'ALL' && tool.module !== currentFilterModule) {
+          return false;
+        }
+        // Filter by Family
+        if (currentFilterFamily !== 'ALL' && !tool.families.includes(currentFilterFamily)) {
+          return false;
+        }
+        // Search Term
+        if (currentSearchTerm.trim() !== '') {
+          const q = currentSearchTerm.toLowerCase();
+          const matchesName = tool.toolName.toLowerCase().includes(q);
+          const matchesCode = tool.toolCode.toLowerCase().includes(q);
+          const matchesModule = tool.module.toLowerCase().includes(q);
+          const matchesMaterials = (tool.materialsSummary || '').toLowerCase().includes(q);
+          const matchesBlades = (tool.bladeTypes || []).some(b => 
+            b.name.toLowerCase().includes(q) || b.code.toLowerCase().includes(q)
+          );
+          return matchesName || matchesCode || matchesModule || matchesMaterials || matchesBlades;
+        }
+        return true;
+      });
+    }
+
+    /* Render Notion Cards (Gallery View) */
+    function renderGallery(tools) {
+      const container = document.getElementById('toolsGalleryGrid');
+      container.innerHTML = '';
+
+      if (tools.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 text-center space-y-3 bg-notion-sidebar dark:bg-notion-darkSidebar rounded-2xl border border-dashed border-notion-border dark:border-notion-darkBorder p-8">
+            <span class="text-3xl">🔍</span>
+            <h4 class="font-bold text-sm text-notion-text dark:text-notion-darkText">No se encontraron herramientas</h4>
+            <p class="text-xs text-notion-muted dark:text-notion-darkMuted max-w-sm mx-auto">
+              Intenta cambiar los filtros de módulo o la palabra clave de búsqueda.
+            </p>
+            <button onclick="resetFilters()" class="px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-semibold">
+              Restablecer Filtros
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      tools.forEach(tool => {
+        const card = document.createElement('div');
+        card.className = `notion-card bg-notion-bg dark:bg-notion-darkBg rounded-2xl border border-notion-border dark:border-notion-darkBorder p-5 shadow-notion hover:shadow-notion-hover flex flex-col justify-between cursor-pointer group`;
+
+        const bladesCount = tool.bladeTypes ? tool.bladeTypes.length : 0;
+
+        card.innerHTML = `
+          <div class="space-y-4">
+            <!-- Header Notion Style with Icon, Title and Code -->
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center space-x-3 min-w-0">
+                <span class="text-2xl p-2 rounded-xl bg-notion-sidebar dark:bg-notion-darkSidebar border border-notion-border dark:border-notion-darkBorder shrink-0 group-hover:scale-105 transition-transform">${tool.icon || '✂️'}</span>
+                <div class="min-w-0">
+                  <h3 class="font-bold text-sm leading-snug text-notion-text dark:text-notion-darkText group-hover:text-papiro-orange transition-colors truncate">${tool.toolName}</h3>
+                  <div class="text-2xs font-mono text-notion-muted dark:text-notion-darkMuted">Código: <span class="font-semibold text-neutral-800 dark:text-neutral-200">${tool.toolCode}</span></div>
+                </div>
+              </div>
+              <span class="tag-chip shrink-0 ${TAG_CLASSES[tool.colorTag] || TAG_CLASSES.tagBlue} font-mono">
+                ${tool.module}
+              </span>
+            </div>
+
+            <!-- Notion Properties Rows -->
+            <div class="space-y-2 text-xs border-y border-notion-border dark:border-notion-darkBorder py-3">
+              <!-- Material Families -->
+              <div class="flex items-start space-x-2">
+                <span class="text-notion-muted dark:text-notion-darkMuted w-24 shrink-0 flex items-center space-x-1 font-mono text-2xs">
+                  <span>📁</span>
+                  <span>Familia:</span>
+                </span>
+                <div class="flex-1 flex flex-wrap gap-1">
+                  ${(tool.families || []).map(f => `<span class="px-1.5 py-0.5 rounded text-2xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">${f}</span>`).join('')}
+                </div>
+              </div>
+
+              <!-- Recommended Speed -->
+              <div class="flex items-center space-x-2">
+                <span class="text-notion-muted dark:text-notion-darkMuted w-24 shrink-0 flex items-center space-x-1 font-mono text-2xs">
+                  <span>⚡</span>
+                  <span>Velocidad:</span>
+                </span>
+                <span class="font-mono font-bold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/40 px-2 py-0.5 rounded text-2xs border border-sky-100 dark:border-sky-900">${tool.speedRecommended}</span>
+              </div>
+
+              <!-- Max Thickness & Grammage -->
+              <div class="flex items-start space-x-2">
+                <span class="text-notion-muted dark:text-notion-darkMuted w-24 shrink-0 flex items-center space-x-1 font-mono text-2xs">
+                  <span>📏</span>
+                  <span>Gramaje/Grosor:</span>
+                </span>
+                <span class="text-notion-text dark:text-notion-darkText font-medium text-2xs leading-tight">${tool.grammageRange || tool.maxThickness}</span>
+              </div>
+
+              <!-- Blades options count -->
+              <div class="flex items-center space-x-2">
+                <span class="text-notion-muted dark:text-notion-darkMuted w-24 shrink-0 flex items-center space-x-1 font-mono text-2xs">
+                  <span>🔪</span>
+                  <span>Cuchillas:</span>
+                </span>
+                <span class="font-mono text-2xs text-notion-text dark:text-notion-darkText">
+                  ${bladesCount} tipo(s) oficial(es)
+                </span>
+              </div>
+
+              <!-- ADC Sensor -->
+              <div class="flex items-center space-x-2">
+                <span class="text-notion-muted dark:text-notion-darkMuted w-24 shrink-0 flex items-center space-x-1 font-mono text-2xs">
+                  <span>🎯</span>
+                  <span>Sensor ADC:</span>
+                </span>
+                <span class="text-2xs font-mono font-medium ${tool.adcCompatible ? 'text-emerald-700 dark:text-emerald-400' : 'text-amber-700 dark:text-amber-400'}">
+                  ${tool.adcCompatible ? '● Auto-Calibración ADC' : '▲ Manual (Requerida)'}
+                </span>
+              </div>
+            </div>
+
+            <!-- Material hint preview -->
+            <p class="text-2xs text-notion-muted dark:text-notion-darkMuted line-clamp-2 leading-relaxed italic">
+              "${tool.materialsSummary || ''}"
+            </p>
+          </div>
+
+          <!-- Bottom Actions (Edit, Delete, Open) -->
+          <div class="pt-3 flex items-center justify-between text-2xs border-t border-dashed border-notion-border dark:border-notion-darkBorder mt-3">
+            <div class="flex items-center space-x-1.5" onclick="event.stopPropagation()">
+              <button onclick="openEditModal('${tool.id}')" class="px-2 py-1 rounded-md hover:bg-notion-hover dark:hover:bg-notion-darkHover text-neutral-700 dark:text-neutral-300 border border-notion-border dark:border-notion-darkBorder transition flex items-center space-x-1 font-medium" title="Editar datos">
+                <span>✏️</span>
+                <span>Editar</span>
+              </button>
+              <button onclick="deleteTool('${tool.id}')" class="px-2 py-1 rounded-md hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900 transition flex items-center space-x-1 font-medium" title="Eliminar del taller">
+                <span>🗑️</span>
+              </button>
+            </div>
+            <span class="font-bold text-neutral-600 dark:text-neutral-300 group-hover:translate-x-0.5 transition-transform">Ficha ↗</span>
+          </div>
+        `;
+
+        card.addEventListener('click', (e) => {
+          if (!e.target.closest('button')) {
+            openToolDetail(tool.id);
+          }
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    /* Render Database Table View */
+    function renderTable(tools) {
+      const tbody = document.getElementById('toolsTableBody');
+      tbody.innerHTML = '';
+      tools.forEach(tool => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-notion-hover/60 dark:hover:bg-notion-darkHover/60 cursor-pointer transition';
+
+        const primaryBlade = (tool.bladeTypes && tool.bladeTypes[0]) ? `${tool.bladeTypes[0].name} (${tool.bladeTypes[0].code})` : 'Integrada';
+
+        row.innerHTML = `
+          <td class="py-3 px-4">
+            <div class="flex items-center space-x-2">
+              <span class="text-base">${tool.icon || '✂️'}</span>
+              <div>
+                <div class="font-semibold text-notion-text dark:text-notion-darkText">${tool.toolName}</div>
+                <div class="font-mono text-2xs text-notion-muted">${tool.toolCode}</div>
+              </div>
+            </div>
+          </td>
+          <td class="py-3 px-4">
+            <span class="tag-chip ${TAG_CLASSES[tool.colorTag] || TAG_CLASSES.tagBlue}">${tool.module}</span>
+          </td>
+          <td class="py-3 px-4">
+            <div class="flex flex-wrap gap-1 max-w-xs">
+              ${(tool.families || []).map(f => `<span class="px-1.5 py-0.5 rounded text-2xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">${f}</span>`).join('')}
+            </div>
+          </td>
+          <td class="py-3 px-4 text-2xs font-mono text-neutral-600 dark:text-neutral-300">
+            ${primaryBlade} ${tool.bladeTypes && tool.bladeTypes.length > 1 ? `<span class="text-sky-600 dark:text-sky-400 font-bold">(+${tool.bladeTypes.length - 1})</span>` : ''}
+          </td>
+          <td class="py-3 px-4 text-2xs font-mono text-neutral-800 dark:text-neutral-200">
+            ${tool.maxThickness}
+          </td>
+          <td class="py-3 px-4 font-mono font-bold text-sky-700 dark:text-sky-300 text-2xs">
+            ${tool.speedRecommended}
+          </td>
+          <td class="py-3 px-4 text-center">
+            ${tool.adcCompatible ? '<span class="text-emerald-600 font-mono text-xs">✓ Sí</span>' : '<span class="text-amber-500 font-mono text-xs">Manual</span>'}
+          </td>
+          <td class="py-3 px-4 text-right" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-end space-x-1.5">
+              <button onclick="openEditModal('${tool.id}')" class="px-2 py-0.5 rounded hover:bg-notion-hover text-neutral-600 dark:text-neutral-300 text-2xs border">✏️</button>
+              <button onclick="deleteTool('${tool.id}')" class="px-1.5 py-0.5 rounded hover:bg-rose-50 text-rose-600 text-2xs border border-rose-200">🗑️</button>
+            </div>
+          </td>
+        `;
+        row.addEventListener('click', () => openToolDetail(tool.id));
+        tbody.appendChild(row);
+      });
+    }
+
+    /* Render Kanban Board View */
+    function renderBoard(tools) {
+      const container = document.getElementById('kanbanColumnsGrid');
+      container.innerHTML = '';
+      const modules = ['Arrastre', 'Tangencial', 'Rotativo', 'Fresado', 'Fresado HF'];
+
+      modules.forEach(modName => {
+        const modTools = tools.filter(t => t.module === modName);
+        const col = document.createElement('div');
+        col.className = 'bg-notion-sidebar dark:bg-notion-darkSidebar rounded-2xl border border-notion-border dark:border-notion-darkBorder p-3.5 flex flex-col space-y-3 min-h-[420px] shadow-2xs';
+
+        col.innerHTML = `
+          <div class="flex items-center justify-between pb-2 border-b border-notion-border dark:border-notion-darkBorder">
+            <span class="font-bold text-xs text-notion-text dark:text-notion-darkText flex items-center space-x-1.5">
+              <span>Módulo ${modName}</span>
+            </span>
+            <span class="text-2xs font-mono px-2 py-0.5 rounded-full bg-notion-hover dark:bg-notion-darkHover text-notion-muted">${modTools.length}</span>
+          </div>
+          <div class="space-y-2.5 flex-1 overflow-y-auto">
+            ${modTools.map(t => `
+              <div onclick="openToolDetail('${t.id}')" class="p-3 bg-notion-bg dark:bg-notion-darkBg rounded-xl border border-notion-border dark:border-notion-darkBorder shadow-2xs hover:shadow-notion cursor-pointer transition group">
+                <div class="flex items-center justify-between mb-1.5">
+                  <div class="flex items-center space-x-2 min-w-0">
+                    <span class="text-base shrink-0">${t.icon || '✂️'}</span>
+                    <div class="font-semibold text-xs truncate">${t.toolName.split('(')[0]}</div>
+                  </div>
+                  <div class="flex items-center space-x-1 shrink-0" onclick="event.stopPropagation()">
+                    <button onclick="openEditModal('${t.id}')" class="text-2xs p-1 text-neutral-400 hover:text-sky-500">✏️</button>
+                    <button onclick="deleteTool('${t.id}')" class="text-2xs p-1 text-neutral-400 hover:text-rose-500">🗑️</button>
+                  </div>
+                </div>
+                <div class="text-2xs font-mono text-sky-700 dark:text-sky-300 mb-1">⚡ ${t.speedRecommended}</div>
+                <div class="text-2xs text-notion-muted dark:text-notion-darkMuted line-clamp-2">${t.materialsSummary || ''}</div>
+                <div class="mt-2 pt-2 border-t border-dashed border-notion-border dark:border-notion-darkBorder flex items-center justify-between text-2xs font-mono text-neutral-400">
+                  <span>${t.maxThickness} máx</span>
+                  <span>${t.bladeTypes ? t.bladeTypes.length : 0} Cuchilla(s)</span>
+                </div>
+              </div>
+            `).join('')}
+            ${modTools.length === 0 ? '<div class="text-center text-notion-muted py-12 text-2xs italic">Sin herramientas en este módulo</div>' : ''}
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    /* Open Tool Technical Sheet (Side-Peek) */
+    function openToolDetail(toolId) {
+      const tool = SUMMA_DATABASE.find(t => t.id === toolId);
+      if (!tool) return;
+      currentModalTool = tool;
+
+      document.getElementById('modalIcon').textContent = tool.icon || '✂️';
+      document.getElementById('modalModuleTag').textContent = `MÓDULO ${tool.module.toUpperCase()} • CÓDIGO HERRAMIENTA: ${tool.toolCode}`;
+      document.getElementById('modalTitle').textContent = tool.toolName;
+
+      // Bind modal buttons
+      document.getElementById('modalEditBtn').onclick = () => {
+        closeToolDetail();
+        openEditModal(tool.id);
+      };
+      document.getElementById('modalDeleteBtn').onclick = () => {
+        deleteTool(tool.id);
+      };
+
+      const body = document.getElementById('modalContentBody');
+      body.innerHTML = `
+        <!-- Parameters Grid -->
+        <div class="bg-notion-sidebar dark:bg-notion-darkSidebar p-4 rounded-xl border border-notion-border dark:border-notion-darkBorder grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-notion-muted font-mono text-2xs">Código de Pedido Summa:</span>
+            <div class="font-mono font-bold text-sm text-notion-text dark:text-notion-darkText mt-0.5">${tool.toolCode}</div>
+          </div>
+          <div>
+            <span class="text-notion-muted font-mono text-2xs">Velocidad Recomendada:</span>
+            <div class="font-mono font-bold text-sm text-sky-600 dark:text-sky-400 mt-0.5">${tool.speedRecommended}</div>
+          </div>
+          <div>
+            <span class="text-notion-muted font-mono text-2xs">Espesor / Penetración Máxima:</span>
+            <div class="font-mono font-bold text-sm text-emerald-600 dark:text-emerald-400 mt-0.5">${tool.maxThickness}</div>
+          </div>
+          <div>
+            <span class="text-notion-muted font-mono text-2xs">Calibración ADC:</span>
+            <div class="font-mono font-bold text-sm ${tool.adcCompatible ? 'text-blue-600 dark:text-blue-400' : 'text-amber-500'} mt-0.5">
+              ${tool.adcCompatible ? 'Automática con Sensor Óptico ADC' : 'Manual Requerida'}
+            </div>
+          </div>
+        </div>
+
+        <!-- Material Families & Grammages -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Familias de Material & Gramajes Compatibles</h4>
+          <div class="flex flex-wrap gap-1.5 mb-2">
+            ${(tool.families || []).map(f => `<span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 border border-notion-border dark:border-notion-darkBorder">${f}</span>`).join('')}
+          </div>
+          <div class="p-3 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl border border-notion-border dark:border-notion-darkBorder text-xs space-y-1.5">
+            <p><strong>Rango de Gramaje / Capacidad:</strong> <span class="font-mono">${tool.grammageRange || tool.maxThickness}</span></p>
+            <p><strong>Materiales Comunes:</strong> ${tool.materialsSummary || ''}</p>
+            <p><strong>Velocidad & Operación:</strong> ${tool.speedNote || 'Consulte los parámetros recomendados en Summa GoProduce.'}</p>
+          </div>
+        </div>
+
+        <!-- Blades & Consumables Table -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Cuchillas, Fresas & Consumibles Oficiales (${tool.bladeTypes ? tool.bladeTypes.length : 0})</h4>
+          <div class="border border-notion-border dark:border-notion-darkBorder rounded-xl overflow-hidden text-xs">
+            <table class="w-full text-left">
+              <thead class="bg-neutral-100 dark:bg-neutral-800 text-notion-muted font-mono text-2xs uppercase">
+                <tr>
+                  <th class="p-2.5">Descripción Cuchilla</th>
+                  <th class="p-2.5">Código Pedido</th>
+                  <th class="p-2.5">Geometría / Ángulo</th>
+                  <th class="p-2.5">Profundidad Máx</th>
+                  <th class="p-2.5">Aplicación Principal</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-notion-border dark:divide-notion-darkBorder font-mono">
+                ${(tool.bladeTypes || []).map(b => `
+                  <tr class="hover:bg-notion-hover/50 dark:hover:bg-notion-darkHover/50">
+                    <td class="p-2.5 font-sans font-medium text-notion-text dark:text-notion-darkText">${b.name}</td>
+                    <td class="p-2.5 text-papiro-orange font-bold">${b.code}</td>
+                    <td class="p-2.5 text-neutral-600 dark:text-neutral-400">${b.angle}</td>
+                    <td class="p-2.5 text-emerald-600 dark:text-emerald-400 font-semibold">${b.maxDepth}</td>
+                    <td class="p-2.5 font-sans text-2xs text-neutral-600 dark:text-neutral-400">${b.desc || ''}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Calibration & Operator Guidelines -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Guía de Calibración & Parámetros Axis Control</h4>
+          <div class="p-3.5 bg-blue-50/70 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-900 text-xs space-y-2 text-blue-950 dark:text-blue-200">
+            <p><strong>Procedimiento ADC:</strong> ${tool.adcProcedure || 'Medición óptica con sensor ADC'}</p>
+            <p><strong>Configuración de Presión:</strong> ${tool.springRanges || 'Control tangencial dinámico'}</p>
+            <p><strong>Aspectos Técnicos Destacados:</strong> ${tool.keyFeatures || ''}</p>
+          </div>
+        </div>
+
+        <!-- Accessories -->
+        ${tool.accessories && tool.accessories.length > 0 ? `
+          <div class="space-y-1.5">
+            <h4 class="font-bold text-xs uppercase tracking-wider text-notion-muted font-mono">Accesorios & Repuestos Relevantes</h4>
+            <div class="flex flex-wrap gap-2 text-2xs font-mono">
+              ${tool.accessories.map(acc => `<span class="px-2 py-1 bg-notion-hover dark:bg-notion-darkHover rounded border border-notion-border dark:border-notion-darkBorder text-neutral-700 dark:text-neutral-300">🔧 ${acc}</span>`).join('')}
+            </div>
+          </div>
+        ` : ''}
+      `;
+
+      document.getElementById('toolDetailModal').classList.remove('hidden');
+    }
+
+    function closeToolDetail() {
+      document.getElementById('toolDetailModal').classList.add('hidden');
+    }
+
+    document.getElementById('modalCloseBtn').onclick = closeToolDetail;
+    document.getElementById('toolDetailModal').onclick = (e) => {
+      if (e.target === document.getElementById('toolDetailModal')) closeToolDetail();
+    };
+
+    /* Copy Technical Sheet to Clipboard */
+    document.getElementById('modalCopyBtn').onclick = () => {
+      if (!currentModalTool) return;
+      const t = currentModalTool;
+      const copyText = `SUMMA SERIE F - FICHA TÉCNICA OFICIAL (PAPIRO)
+Herramienta: ${t.toolName} (Código: ${t.toolCode})
+Módulo: ${t.module} (${t.moduleCode || ''})
+Velocidad Recomendada: ${t.speedRecommended}
+Familias: ${(t.families || []).join(', ')}
+Gramaje / Grosor: ${t.grammageRange || t.maxThickness} (Máx: ${t.maxThickness})
+Cuchillas:
+${(t.bladeTypes || []).map(b => ` - ${b.name} [Código ${b.code}] -> Ángulo: ${b.angle}, Máx: ${b.maxDepth}`).join('\n')}
+Calibración ADC: ${t.adcCompatible ? 'Automática con sensor' : 'Manual requerida'}
+Notas Training 2025: ${t.keyFeatures || ''}`;
+
+      const el = document.createElement('textarea');
+      el.value = copyText;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      showToast('Ficha técnica copiada al portapapeles', '📋');
+    };
+
+    /* Open Tool Edit / Create Modal */
+    function openEditModal(toolId = null) {
+      const modal = document.getElementById('editToolModal');
+      if (toolId) {
+        const tool = SUMMA_DATABASE.find(t => t.id === toolId);
+        if (!tool) return;
+        document.getElementById('editModalTitle').textContent = `Editar: ${tool.toolName}`;
+        document.getElementById('editModalIconPreview').textContent = tool.icon || '🛠️';
+        document.getElementById('formToolId').value = tool.id;
+        document.getElementById('formToolName').value = tool.toolName;
+        document.getElementById('formToolIcon').value = tool.icon || '✂️';
+        document.getElementById('formToolCode').value = tool.toolCode;
+        document.getElementById('formToolModule').value = tool.module;
+        document.getElementById('formModuleCode').value = tool.moduleCode || '';
+        document.getElementById('formToolSpeed').value = tool.speedRecommended;
+        document.getElementById('formToolMaxThickness').value = tool.maxThickness;
+        document.getElementById('formToolGrammage').value = tool.grammageRange || '';
+        document.getElementById('formToolFamilies').value = (tool.families || []).join(', ');
+        document.getElementById('formToolMaterials').value = tool.materialsSummary || '';
+        document.getElementById('formToolAdc').value = tool.adcCompatible ? 'true' : 'false';
+        document.getElementById('formToolProcess').value = tool.processType || '';
+        document.getElementById('formToolFeatures').value = tool.keyFeatures || '';
+      } else {
+        // New tool
+        document.getElementById('editModalTitle').textContent = 'Agregar Nueva Herramienta al Taller';
+        document.getElementById('editModalIconPreview').textContent = '➕';
+        document.getElementById('formToolId').value = '';
+        document.getElementById('formToolName').value = '';
+        document.getElementById('formToolIcon').value = '✂️';
+        document.getElementById('formToolCode').value = '';
+        document.getElementById('formToolModule').value = 'Tangencial';
+        document.getElementById('formModuleCode').value = '500-9310';
+        document.getElementById('formToolSpeed').value = '500 - 800 mm/s';
+        document.getElementById('formToolMaxThickness').value = '5 mm';
+        document.getElementById('formToolGrammage').value = '';
+        document.getElementById('formToolFamilies').value = 'Cartón y Papel';
+        document.getElementById('formToolMaterials').value = '';
+        document.getElementById('formToolAdc').value = 'true';
+        document.getElementById('formToolProcess').value = 'Corte Pasante';
+        document.getElementById('formToolFeatures').value = '';
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editToolModal').classList.add('hidden');
+    }
+
+    document.getElementById('editModalCloseBtn').onclick = closeEditModal;
+    document.getElementById('editModalCancelBtn').onclick = closeEditModal;
+    document.getElementById('addToolTopBtn').onclick = () => openEditModal(null);
+
+    /* Form Submit (Create / Update) */
+    document.getElementById('toolForm').onsubmit = (e) => {
+      e.preventDefault();
+      const toolId = document.getElementById('formToolId').value;
+      const toolName = document.getElementById('formToolName').value.trim();
+      const icon = document.getElementById('formToolIcon').value.trim() || '✂️';
+      const toolCode = document.getElementById('formToolCode').value.trim();
+      const module = document.getElementById('formToolModule').value;
+      const moduleCode = document.getElementById('formModuleCode').value.trim();
+      const speed = document.getElementById('formToolSpeed').value.trim();
+      const maxThickness = document.getElementById('formToolMaxThickness').value.trim();
+      const grammage = document.getElementById('formToolGrammage').value.trim();
+      const families = document.getElementById('formToolFamilies').value.split(',').map(f => f.trim()).filter(Boolean);
+      const materials = document.getElementById('formToolMaterials').value.trim();
+      const adc = document.getElementById('formToolAdc').value === 'true';
+      const process = document.getElementById('formToolProcess').value.trim();
+      const features = document.getElementById('formToolFeatures').value.trim();
+
+      if (toolId) {
+        const idx = SUMMA_DATABASE.findIndex(t => t.id === toolId);
+        if (idx !== -1) {
+          SUMMA_DATABASE[idx] = {
+            ...SUMMA_DATABASE[idx],
+            toolName,
+            icon,
+            toolCode,
+            module,
+            moduleCode,
+            speedRecommended: speed,
+            maxThickness,
+            grammageRange: grammage,
+            families,
+            materialsSummary: materials,
+            adcCompatible: adc,
+            processType: process,
+            keyFeatures: features
+          };
+          showToast(`Herramienta "${toolName}" actualizada`, '💾');
+        }
+      } else {
+        const newTool = {
+          id: 'custom-' + Date.now(),
+          toolName,
+          icon,
+          toolCode,
+          module,
+          moduleCode,
+          speedRecommended: speed,
+          maxThickness,
+          grammageRange: grammage,
+          families,
+          materialsSummary: materials,
+          adcCompatible: adc,
+          processType: process,
+          keyFeatures: features,
+          colorTag: 'tagBlue',
+          bladeTypes: [
+            { name: 'Cuchilla estándar taller', code: toolCode, angle: '45°', maxDepth: maxThickness, desc: 'Herramienta configurada por el cliente' }
+          ],
+          accessories: [],
+          springRanges: 'Ajuste estándar en máquina',
+          adcProcedure: adc ? 'Medición automática con sensor ADC' : 'Calibración manual requerida'
+        };
+        SUMMA_DATABASE.unshift(newTool);
+        showToast(`Herramienta "${toolName}" agregada al catálogo`, '✅');
+      }
+
+      saveToolsToStorage(SUMMA_DATABASE);
+      closeEditModal();
+      renderCurrentView();
+    };
+
+    /* Delete Tool */
+    function deleteTool(toolId) {
+      const tool = SUMMA_DATABASE.find(t => t.id === toolId);
+      if (!tool) return;
+
+      openConfirm(
+        'Eliminar Herramienta',
+        `¿Deseas eliminar "${tool.toolName}" del catálogo del cliente? Podrás restaurarla cuando quieras.`,
+        '🗑️',
+        () => {
+          SUMMA_DATABASE = SUMMA_DATABASE.filter(t => t.id !== toolId);
+          saveToolsToStorage(SUMMA_DATABASE);
+          closeToolDetail();
+          showToast('Herramienta retirada del taller', '🗑️');
+          renderCurrentView();
+        }
+      );
+    }
+
+    /* Restore Factory Catalog */
+    document.getElementById('restoreCatalogBtn').onclick = () => {
+      openConfirm(
+        'Restablecer Catálogo Oficial',
+        '¿Deseas restaurar todas las 14 herramientas originales del catálogo Summa Training 2025?',
+        '🔄',
+        () => {
+          SUMMA_DATABASE = JSON.parse(JSON.stringify(DEFAULT_SUMMA_DATABASE));
+          saveToolsToStorage(SUMMA_DATABASE);
+          showToast('Catálogo oficial restablecido de fábrica', '🔄');
+          renderCurrentView();
+        }
+      );
+    };
+
+    /* View Switchers */
+    const tabButtons = {
+      gallery: document.getElementById('tabGalleryBtn'),
+      table: document.getElementById('tabTableBtn'),
+      board: document.getElementById('tabBoardBtn'),
+      matcher: document.getElementById('tabMatcherBtn')
+    };
+
+    const viewContainers = {
+      gallery: document.getElementById('galleryViewContainer'),
+      table: document.getElementById('tableViewContainer'),
+      board: document.getElementById('boardViewContainer'),
+      matcher: document.getElementById('matcherViewContainer')
+    };
+
+    function switchView(viewName) {
+      currentView = viewName;
+      Object.keys(tabButtons).forEach(key => {
+        const btn = tabButtons[key];
+        const panel = viewContainers[key];
+        if (key === viewName) {
+          btn.className = 'flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-notion-bg dark:bg-notion-darkBg shadow-xs text-notion-text dark:text-notion-darkText font-semibold';
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = 'flex items-center space-x-1.5 px-3 py-1.5 rounded-lg hover:bg-notion-hover dark:hover:bg-notion-darkHover text-notion-muted dark:text-notion-darkMuted transition';
+          panel.classList.add('hidden');
+        }
+      });
+      renderCurrentView();
+    }
+
+    tabButtons.gallery.onclick = () => switchView('gallery');
+    tabButtons.table.onclick = () => switchView('table');
+    tabButtons.board.onclick = () => switchView('board');
+    tabButtons.matcher.onclick = () => switchView('matcher');
+
+    /* Search & Filter Handlers */
+    function applyFilters() {
+      currentFilterModule = document.getElementById('filterModule').value;
+      currentFilterFamily = document.getElementById('filterFamily').value;
+      currentSearchTerm = document.getElementById('searchInput').value;
+      document.getElementById('clearSearchBtn').classList.toggle('hidden', currentSearchTerm === '');
+      renderCurrentView();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('filterModule').addEventListener('change', applyFilters);
+    document.getElementById('filterFamily').addEventListener('change', applyFilters);
+
+    document.getElementById('clearSearchBtn').onclick = () => {
+      document.getElementById('searchInput').value = '';
+      applyFilters();
+    };
+
+    function resetFilters() {
+      document.getElementById('filterModule').value = 'ALL';
+      document.getElementById('filterFamily').value = 'ALL';
+      document.getElementById('searchInput').value = '';
+      applyFilters();
+    }
+
+    document.getElementById('resetFiltersBtn').onclick = resetFilters;
+
+    /* Quick Filter Chips */
+    document.querySelectorAll('.quick-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const quick = chip.getAttribute('data-quick');
+        if (quick === 'kiss') {
+          document.getElementById('filterModule').value = 'Tangencial';
+          document.getElementById('filterFamily').value = 'Rollo y Vinilos';
+          document.getElementById('searchInput').value = '';
+        } else if (quick === 'packaging') {
+          document.getElementById('filterModule').value = 'Tangencial';
+          document.getElementById('filterFamily').value = 'Cartón y Papel';
+          document.getElementById('searchInput').value = '';
+        } else if (quick === 'corrugated') {
+          document.getElementById('filterModule').value = 'ALL';
+          document.getElementById('filterFamily').value = 'Cartón y Papel';
+          document.getElementById('searchInput').value = 'Ondulada';
+        } else if (quick === 'reboard') {
+          document.getElementById('filterModule').value = 'Tangencial';
+          document.getElementById('filterFamily').value = 'ALL';
+          document.getElementById('searchInput').value = 'POT';
+        } else if (quick === 'textile') {
+          document.getElementById('filterModule').value = 'Rotativo';
+          document.getElementById('filterFamily').value = 'Textiles';
+          document.getElementById('searchInput').value = '';
+        } else if (quick === 'rigid') {
+          document.getElementById('filterModule').value = 'ALL';
+          document.getElementById('filterFamily').value = 'Madera y Rígidos';
+          document.getElementById('searchInput').value = '';
+        } else if (quick === 'vcut') {
+          document.getElementById('filterModule').value = 'Tangencial';
+          document.getElementById('filterFamily').value = 'ALL';
+          document.getElementById('searchInput').value = 'V-Cut';
+        }
+        applyFilters();
+      });
+    });
+
+    /* Render Current Active View */
+    function renderCurrentView() {
+      const filtered = getFilteredTools();
+      document.getElementById('toolsCountLabel').textContent = `${filtered.length} de ${SUMMA_DATABASE.length} herramientas`;
+      document.getElementById('statToolsCount').textContent = `${SUMMA_DATABASE.length} en Taller`;
+
+      if (currentView === 'gallery') renderGallery(filtered);
+      else if (currentView === 'table') renderTable(filtered);
+      else if (currentView === 'board') renderBoard(filtered);
+    }
+
+    /* Initialize Material Matcher */
+    function initMaterialMatcher() {
+      const catSelect = document.getElementById('matcherCategorySelect');
+      const matSelect = document.getElementById('matcherMaterialSelect');
+      const thickInput = document.getElementById('matcherThicknessInput');
+
+      const categories = [...new Set(MATERIAL_MATRIX.map(m => m.category))];
+      catSelect.innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join('');
+
+      function updateMaterialOptions() {
+        const selCat = catSelect.value;
+        const mats = MATERIAL_MATRIX.filter(m => m.category === selCat);
+        matSelect.innerHTML = mats.map((m, idx) => `<option value="${idx}">${m.name}</option>`).join('');
+        updateMatchResult();
+      }
+
+      function updateMatchResult() {
+        const selCat = catSelect.value;
+        const mats = MATERIAL_MATRIX.filter(m => m.category === selCat);
+        const item = mats[matSelect.value] || mats[0];
+        if (!item) return;
+
+        thickInput.value = item.maxThick;
+
+        document.getElementById('matcherResultBox').innerHTML = `
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="text-2xs font-mono uppercase tracking-wider text-papiro-orange font-bold">CONFIGURACIÓN SUMMA TRAINING 2025: ${item.name}</div>
+              <h4 class="text-sm sm:text-base font-bold text-neutral-900 dark:text-white flex items-center space-x-2">
+                <span>Herramienta Primaria:</span>
+                <span class="text-papiro-orange underline decoration-papiro-orange underline-offset-4">${item.rec}</span>
+              </h4>
+              <div class="text-xs text-neutral-600 dark:text-neutral-300">
+                <span class="font-medium text-notion-muted">Alternativa secundaria:</span> ${item.alt}
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 shrink-0">
+              <div class="bg-neutral-50 dark:bg-neutral-800 p-3 rounded-xl border border-notion-border dark:border-notion-darkBorder text-center font-mono">
+                <div class="text-2xs text-notion-muted">Velocidad Rec.</div>
+                <div class="text-sm font-bold text-sky-600 dark:text-sky-400">${item.speed}</div>
+              </div>
+              <div class="bg-neutral-50 dark:bg-neutral-800 p-3 rounded-xl border border-notion-border dark:border-notion-darkBorder text-center font-mono">
+                <div class="text-2xs text-notion-muted">Espesor Máx</div>
+                <div class="text-sm font-bold text-emerald-600 dark:text-emerald-400">${item.maxThick}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      catSelect.addEventListener('change', updateMaterialOptions);
+      matSelect.addEventListener('change', updateMatchResult);
+      updateMaterialOptions();
+    }
+
+    /* Render Matrix Table */
+    function renderMatrixTable() {
+      const container = document.getElementById('matrixTableContainer');
+      container.innerHTML = `
+        <table class="w-full text-left border-collapse border border-notion-border dark:border-notion-darkBorder">
+          <thead>
+            <tr class="bg-neutral-100 dark:bg-neutral-800/80 border-b border-notion-border dark:border-notion-darkBorder font-mono uppercase text-2xs">
+              <th class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder">Material</th>
+              <th class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder">Herramienta Recomendada</th>
+              <th class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder">Alternativa</th>
+              <th class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder">Velocidad</th>
+              <th class="p-2.5">Grosor / Gramaje</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-notion-border dark:divide-notion-darkBorder">
+            ${MATERIAL_MATRIX.map(m => `
+              <tr class="hover:bg-notion-hover/40 dark:hover:bg-notion-darkHover/40 transition">
+                <td class="p-2.5 font-medium border-r border-notion-border dark:border-notion-darkBorder text-notion-text dark:text-notion-darkText">${m.name}</td>
+                <td class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder font-semibold text-papiro-orange">● ${m.rec}</td>
+                <td class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder text-notion-muted dark:text-notion-darkMuted">○ ${m.alt}</td>
+                <td class="p-2.5 border-r border-notion-border dark:border-notion-darkBorder font-mono font-medium text-emerald-700 dark:text-emerald-400">${m.speed}</td>
+                <td class="p-2.5 font-mono text-neutral-600 dark:text-neutral-400">${m.maxThick}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    /* Guide Modal triggers */
+    document.getElementById('guideBtn').onclick = () => document.getElementById('guideModal').classList.remove('hidden');
+    document.getElementById('guideCloseBtn').onclick = () => document.getElementById('guideModal').classList.add('hidden');
+    document.getElementById('guideModal').onclick = (e) => {
+      if (e.target === document.getElementById('guideModal')) document.getElementById('guideModal').classList.add('hidden');
+    };
+
+    /* Keyboard Shortcuts (Esc to close open modals) */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeToolDetail();
+        closeEditModal();
+        document.getElementById('guideModal').classList.add('hidden');
+        document.getElementById('confirmModal').classList.add('hidden');
+      }
+    });
+
+    /* Application Startup */
+    window.onload = function () {
+      initTheme();
+      initMaterialMatcher();
+      renderMatrixTable();
+      renderCurrentView();
+    };
+  </script>
+</body>
+</html>
